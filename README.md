@@ -50,7 +50,7 @@ $py = ".\.venv\Scripts\python.exe"
 | Fixture | Template | What you get |
 |---|---|---|
 | `fixtures/demo_rect.yaml` | `enclosure_box` | A small box, about 25×17×12 mm, with one opening on the +X face. The opening is the connector window plus clearance. |
-| `fixtures/demo_round.yaml` | `enclosure_round` | A 40 mm cylinder, 18 mm tall, and a 2 mm lid with six 3 mm holes. With the lid on, and again with the body and lid side by side. |
+| `fixtures/demo_round.yaml` | `enclosure_round` | A 40 mm cylinder, 18 mm tall, and a 2 mm lid with six 3 mm holes. One picture has the lid on. The other has the body and lid side by side. |
 | `fixtures/demo_shell.yaml` | `enclosure_shell` | A shell around a 40×30×16 mm outline. The lid is screwed, not snapped. |
 | `fixtures/demo_tray.yaml` | `enclosure_tray` | A tray, 100×80×20 mm inside, with pockets, an open bay, and a separate lid. Turn the lid in the slicer. |
 
