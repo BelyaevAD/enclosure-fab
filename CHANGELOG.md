@@ -2,4 +2,4 @@
 
 ## 0.1.0
 
-First public release. CadQuery 2.8 wrapper: YAML spec to STL, 3MF, STEP, and a preview image. Synthetic fixtures only.
+First public release. A YAML file becomes STL, 3MF, STEP, and a preview picture. Example fixtures and the agent skill are included. Python 3.12.

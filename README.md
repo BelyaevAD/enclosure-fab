@@ -1,5 +1,7 @@
 # enclosure-fab
 
+Version 0.1.0
+
 **Language:** English | [Русский](README.ru.md)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)

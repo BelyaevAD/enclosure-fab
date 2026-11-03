@@ -9,6 +9,7 @@ COPIES = (
     ROOT / ".cursor" / "skills" / "enclosure-fab" / "SKILL.md",
     ROOT / ".claude" / "skills" / "enclosure-fab" / "SKILL.md",
     ROOT / ".agents" / "skills" / "enclosure-fab" / "SKILL.md",
+    ROOT / "skills" / "enclosure-fab" / "SKILL.md",
 )
 
 
