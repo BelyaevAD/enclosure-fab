@@ -1,11 +1,9 @@
-"""Channel clip for a power-strip body. Two teeth, one top hole.
+"""Channel clip. Two teeth, one top hole. Sizes come from the spec.
 
-The clear pocket is the operator's internal 55×30: X between the legs,
-Z from the underside of the top bar down to the tops of the teeth. The
-15 mm band is Y. Both teeth reach 10 mm into the pocket; thickness is
-the wall. The 3MF lies on a side face: print Z is the band, so the
-channel profile is in the layers. The hole is a Ø5 bore with a 45°
-teardrop toward +Y, which is up on the bed.
+The pocket is the clear opening: across the legs, and from the underside
+of the top bar down to the tops of the teeth. The band is the print height
+when the part lies on its side. The hole is a teardrop toward the face that
+is up on the bed.
 """
 
 from __future__ import annotations

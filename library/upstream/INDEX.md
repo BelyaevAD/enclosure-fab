@@ -1,24 +1,23 @@
-# Upstream — рецепты, не vendor
+# Upstream pins, not vendored source
 
-Чужие репозитории **не** клонируем в зону. Здесь pin: URL, лицензия, `last-checked`, что украсть, почему не submodule.
+Other repositories are not cloned into this tree. This folder pins a URL, a license, when it was last checked, what to take, and why it is not a submodule.
 
-Машина: [`pins.yaml`](pins.yaml) (поле `upstream` в `list_primitives`). Агент: этот файл + [`SOURCES.md`](../../SOURCES.md).
+The machine reads [`pins.yaml`](pins.yaml).
 
-## Как обновлять
+## How to update
 
-1. Трогаешь примитив (кнопка, сетка, колодец) — открыть pin и **реально** глянуть URL, обновить `last_checked`.
-2. Полезный приём, которого нет в `fabkit/` — строка в [`../primitives/catalog.yaml`](../primitives/catalog.yaml) (`live: false` пока нет резака) **и** рецепт в CadQuery в том же ходе, если оператор просил геометрию.
-3. Не `git submodule add` OpenSCAD. Не `pip install cq_enclosure_builder` в venv зоны «вместо» `fabkit`.
+1. When you touch a primitive, open the pin and actually look at the URL. Update `last_checked`.
+2. A useful trick that is not in `fabkit/` yet gets a `live: false` row in [`../primitives/catalog.yaml`](../primitives/catalog.yaml) until the cutter exists.
+3. Do not `git submodule add` OpenSCAD. Do not `pip install` a competing enclosure generator in place of `fabkit`.
 
-## Почему не качаем целиком
+## Why the whole repo stays out
 
-| Репо | Почему смотреть | Почему не vendor |
-|------|-----------------|------------------|
-| [cq_enclosure_builder](https://github.com/raphael-isvelin/cq_enclosure_builder) | CadQuery parts: PBS-кнопки, `air_vent`, layout grid | Другой генератор коробок; кнопки — вырез панели, не язычок в стенке |
-| [Parametric_Enclosure](https://github.com/CadQuery/cadquery-contrib/blob/master/examples/Parametric_Enclosure.py) | Разъём коробки на винтах / стойки | Пример, не живой SKU; `device-shell` — `fabkit/enclosure_shell.py` |
-| [YAPP_Box](https://github.com/mrWheel/YAPP_Box) | PCB box, маски сот, cutout arrays | OpenSCAD |
-| [BOSL2](https://github.com/BelfrySCAD/BOSL2) | Маски, сетки, примитивы | OpenSCAD, огромный |
-| [NopSCADlib](https://github.com/nophead/NopSCADlib) | `vitamins/button.scad` | Модели **такт**, не wall flex-tab; OpenSCAD |
-| Printables PIP button / Malolos Pi flexure | Tear-away и щель 0.8 на 0.4 | STL, не CQ; их щель часто на столе |
+| Repo | Why look | Why not vendor |
+|------|----------|----------------|
+| [cq_enclosure_builder](https://github.com/raphael-isvelin/cq_enclosure_builder) | CadQuery parts: buttons, air vents, grids | A different box generator. Its buttons are panel cutouts, not a tongue in the wall. |
+| [Parametric_Enclosure](https://github.com/CadQuery/cadquery-contrib/blob/master/examples/Parametric_Enclosure.py) | Screw posts | An example, not this wrapper. Device shells are `fabkit/enclosure_shell.py`. |
+| [YAPP_Box](https://github.com/mrWheel/YAPP_Box) | PCB box, honeycomb masks | OpenSCAD |
+| [BOSL2](https://github.com/BelfrySCAD/BOSL2) | Masks and primitives | OpenSCAD, and large |
+| [NopSCADlib](https://github.com/nophead/NopSCADlib) | `vitamins/button.scad` | Tactile-switch models, not a wall flex tab. OpenSCAD |
 
-Канон зоны: [ADR 047](../../../../docs/adr/adr-047-3d-fabrication-platform.md) — CadQuery only, no OpenSCAD fallback.
+One kernel: CadQuery. No OpenSCAD fallback.

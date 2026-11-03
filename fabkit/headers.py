@@ -1,6 +1,6 @@
 """Pin-row lid slots and a side button for enclosure_snap.
 
-Pattern: header-snap in DESIGN_PATTERNS.md. Spec millimetres are the part.
+Pattern: header-snap. Spec millimetres are the part.
 Pin slots add FDM opening clearance like USB. A flex_tab is the wall itself:
 the slot *is* the clearance — do not grow the tongue by +0.3/side.
 """

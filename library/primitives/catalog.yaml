@@ -210,10 +210,8 @@ primitives:
     pattern: device-tray
     etalon: fixtures/demo_tray.yaml
     notes: >-
-      Two or three 3 mm floor ribs under GSM and the socket, same height
-      as the mount pads (2 mm), so the part cannot rock on two screws.
-      Strips run parallel to the mount pair. Not under the PSU. Not a
-      lid post.
+      Floor ribs under parts that would rock on two screws, same height
+      as the mount pads, parallel to the mount pair. Not a lid post.
   - id: c-ring
     live: true
     kind: clip
@@ -221,9 +219,9 @@ primitives:
     pattern: ring-yoke
     etalon: templates/ring_yoke
     notes: >-
-      Open hoop, two of them coplanar. Trial holes Ø41.5 and Ø31.3.
-      Mouths 36.5 and 24.5 on opposite ends (bar -X, handle +X).
-      Handle wall 2.0 mm, bar wall 4 mm. Not crossed axes. Not an enclosure.
+      Open hoop, two of them coplanar. Mouths on opposite ends
+      (bar -X, handle +X). Sizes come from the spec. Not crossed axes.
+      Not an enclosure.
   - id: strip-tooth
     live: true
     kind: clip
@@ -231,8 +229,6 @@ primitives:
     pattern: strip-clip
     etalon: templates/strip_clip
     notes: >-
-      Channel for a power-strip body. Clear pocket 55×30 mm, band 15 mm,
-      wall 4 mm, two teeth of 10 mm. Hole centred in the top bar;
-      diameter is unconfirmed (preview Ø5, 45° teardrop). 3MF lies on
-      a side face, height 15 mm. Infill 70% is a slicer note.
-      Not an enclosure. Not ring-yoke. Not a single tooth.
+      Channel with two teeth and one hole in the top bar. Pocket, band,
+      and tooth length come from the spec. The part lies on its side.
+      Not an enclosure. Not one tooth.

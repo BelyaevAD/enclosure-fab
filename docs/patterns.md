@@ -18,6 +18,12 @@ These recipes use the fixtures in this repository. Copy a fixture and change the
 
 `fixtures/demo_tray.yaml`, template `enclosure_tray`. Several pockets and an open well. The lid is a separate solid. Turn it in the slicer yourself. This file does not set a print pose for you.
 
+## Two rings and a channel
+
+`ring_yoke` builds two coplanar C-rings. Mouths open on opposite ends. Sizes come from the spec.
+
+`strip_clip` builds one channel with two teeth and a hole in the top bar. The part lies on its side. Sizes come from the spec. Do not go back to one tooth.
+
 ## Preview and print
 
 `preview` is allowed while millimetres are still assumed. The file name starts with `PREVIEW-`. `print` refuses until fit-critical fields are confirmed. A keep-out solid that intersects the part deletes the print files.

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-# Station printer — DESIGN_PATTERNS.md pattern p1s-0.4. Not a print gate.
+# Station printer. Not a print gate.
 STATION_PRINTER = "bambu-p1s"
 NOZZLE_MM = 0.4
 NOZZLE_TYPE = "hardened-steel"

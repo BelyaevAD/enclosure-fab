@@ -36,7 +36,7 @@ printer: |
   wall intake is shed-slot (window) or grid-45 (diagonal slits, no 90° lintel);
   no 0.2-nozzle details. Standing-wall flex_tab is one U-slot with CAD
   whiskers (flex-tab-ties), not a diamond island and not slicer supports.
-  Pattern p1s-0.4 in DESIGN_PATTERNS.md.
+  Pattern name: p1s-0.4. See docs/patterns.md.
 
 coordinate_system: |
   Enclosure default: origin is the board corner closest to USB-left when the USB jack faces +X.
