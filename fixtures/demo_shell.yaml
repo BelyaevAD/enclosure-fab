@@ -1,0 +1,45 @@
+template_id: enclosure_shell
+board_id: demo_shell
+family: demo
+revision: fixture
+notes: Synthetic confirmed device-shell for pytest only. Not a physical SKU.
+wall_mm: 3.0
+print_profile:
+  printer: bambu-p1s
+  material: ASA
+  nozzle_mm: 0.4
+  nozzle_type: hardened-steel
+device:
+  length_mm: { value: 40.0, origin: assumed, confirmed: true }
+  width_mm: { value: 30.0, origin: assumed, confirmed: true }
+  height_mm: { value: 16.0, origin: assumed, confirmed: true }
+shell:
+  gap_xy_mm: 1.0
+  gap_z_mm: 2.0
+  gallery_mm: 8.0
+  cable_chamber_mm: 20.0
+  partition_t_mm: 2.4
+  hv_width_mm: 16.0
+  floor_mm: 3.0
+  lid_mm: 2.5
+  lip_mm: 2.0
+  lid_fit_mm: 0.25
+  corner_r_mm: 0.0
+  insert_hole_d_mm: 4.0
+  insert_boss_d_mm: 8.8
+  insert_depth_mm: 5.0
+  screw_clear_d_mm: 3.4
+  boss_inset_mm: 6.5
+  gland_hv_d_mm: 8.0
+  gland_lv_d_mm: 6.0
+  sma:
+    x_mm: { value: 8.0, origin: assumed, confirmed: true }
+    y_mm: { value: 15.0, origin: assumed, confirmed: true }
+    clearance_d_mm: 16.0
+    slot_to_minus_x: true
+keepout:
+  device:
+    min: [0.0, 0.0, 0.0]
+    max: [40.0, 30.0, 16.0]
+    origin: assumed
+    confirmed: true

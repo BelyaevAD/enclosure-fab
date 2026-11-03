@@ -1,0 +1,238 @@
+policy: >-
+  Live geometry is fabkit (CadQuery). This file names the parts the agent
+  may copy. Do not git-submodule OpenSCAD (BOSL2, YAPP_Box, NopSCADlib) and
+  do not dump .scad into the cutter. Steal a recipe, reimplement in CadQuery,
+  pin the URL in library/upstream/. tie ≠ nub: nub is the inner actuator pad;
+  ties are breakaway print ticks across the U-slot (snip after print).
+primitives:
+  - id: flex-tab
+    live: true
+    kind: button
+    module: fabkit/headers.py
+    pattern: header-snap
+    etalon: library/boards/wemos.yaml
+    notes: >-
+      One square U-slot tongue in the standing wall the stem faces. Vertical
+      hinge (bend in XY). Slot 0.8 / tab_t 0.9. Two long slits + 0.8 mm
+      vertical cap. CAD whiskers (flex-tab-ties) on the longs. Not a hole
+      on the USB face. Not a diamond island. Not a rounded bulge at a
+      corner RESET.
+  - id: flex-tab-ties
+    live: true
+    kind: print-support
+    module: fabkit/headers.py
+    pattern: flex-tab-ties
+    etalon: library/boards/wemos.yaml
+    notes: >-
+      Breakaway 0.42 mm whiskers (one 0.4-nozzle line) across the long
+      slits of a square U, pitch 3.2, first tick at the free-end corners.
+      Operator snips after print. Not slicer supports. Not the inner nub.
+      Not ticks on a rounded bulge.
+  - id: usb-window
+    live: true
+    kind: cutout
+    module: fabkit/enclosure_snap.py
+    pattern: fit-fdm
+    notes: Part millimetres plus +0.3/side. z = shell centre from PCB bottom.
+  - id: header-pin-well
+    live: true
+    kind: well
+    module: fabkit/headers.py
+    pattern: header-snap
+    etalon: library/boards/wemos.yaml
+    notes: Roof + skirt well over a pin row. Exhaust of header-snap. End clips, not a full ±Y bead.
+  - id: shed-slot
+    live: true
+    kind: vent
+    module: fabkit/vents.py
+    pattern: shed-slot
+    etalon: fixtures/demo_rect.yaml
+    notes: Rectangular window in a standing wall, rim stays a loop, 45° shed lintel.
+  - id: roof-bed-well
+    live: true
+    kind: vent
+    module: fabkit/vents.py
+    pattern: roof-bed-well
+    etalon: fixtures/demo_rect.yaml
+    notes: Exhaust through a lid that prints on the bed. One well-frame, end rails stay.
+  - id: gable-slot
+    live: false
+    kind: vent
+    module: fabkit/vents.py
+    pattern: gable-slot
+    notes: Library prism. Not the live wall intake (shed-slot won).
+  - id: rim-crenel
+    live: false
+    kind: vent
+    module: fabkit/vents.py
+    pattern: rim-crenel
+    notes: Do not use. Tears the snap groove.
+  - id: window-horizontal
+    live: true
+    kind: vent
+    module: fabkit/vents.py
+    pattern: vent-names
+    notes: Operator name for live shed-slot (kind window, orientation horizontal).
+  - id: grid-45
+    live: true
+    kind: vent
+    module: fabkit/vents.py
+    pattern: grid-45
+    etalon: library/boards/wemos.yaml
+    notes: >-
+      Parallel +45° slits in the wall face (along − z = c). Self-supporting
+      on a standing wall. Rim stays a loop. Not louver-45. Not a 90° lintel.
+  - id: louver-45
+    live: false
+    kind: vent
+    module: fabkit/vent_catalog.py
+    pattern: vent-names
+    notes: Blades through wall thickness, drip. Named only.
+  - id: honeycomb
+    live: false
+    kind: vent
+    module: fabkit/vent_catalog.py
+    pattern: vent-names
+    notes: Hex named only. Snap still cuts windows and warns.
+  - id: teardrop-hole
+    live: true
+    kind: cutout
+    module: fabkit/enclosure_shell.py
+    pattern: device-shell
+    etalon: fixtures/demo_shell.yaml
+    notes: >-
+      Horizontal gland bore in a standing +X wall: circle plus a 45° peak
+      toward +Z. Panel hole for a bought gland with a nut, not an FDM thread.
+  - id: gland-bore
+    live: true
+    kind: cutout
+    module: fabkit/enclosure_shell.py
+    pattern: device-shell
+    etalon: fixtures/demo_shell.yaml
+    notes: >-
+      M16 HV (~16.2 mm panel) and M12 LV (~12.5 mm) through the cable-chamber
+      wall. Separate holes. Cutter adds +0.3/side. Confirm the bought gland.
+  - id: heat-set-m3
+    live: true
+    kind: fastener
+    module: fabkit/enclosure_shell.py
+    pattern: device-shell
+    etalon: fixtures/demo_shell.yaml
+    notes: >-
+      Four corner bosses, ruthex-class M3 hole 4.0 / boss 8.8 / depth 6.0.
+      Lid through 3.4. Not a snap latch. Do not bake filament shrink into CAD.
+  - id: hv-partition
+    live: true
+    kind: barrier
+    module: fabkit/enclosure_shell.py
+    pattern: device-shell
+    etalon: fixtures/demo_shell.yaml
+    notes: >-
+      Full-height wall ≥2 mm in the cable chamber between NO/COM/NC and DC.
+      Not a silk line on the floor.
+  - id: sma-well
+    live: true
+    kind: cutout
+    module: fabkit/enclosure_shell.py
+    pattern: device-shell
+    etalon: fixtures/demo_shell.yaml
+    notes: >-
+      Closed Ø20 well in the lid around SMA (finger clearance, does not
+      clamp). slot_to_minus_x is opt-in when a second exit on that short
+      face is needed. G202: switch unused, slot off. SIM/Reset under lid.
+  - id: open-well
+    live: true
+    kind: cutout
+    module: fabkit/enclosure_tray.py
+    pattern: device-tray
+    etalon: fixtures/demo_tray.yaml
+    notes: >-
+      Lid cut over a covered:false pocket (Schuko). Extends to the +X and
+      −Y rims so the remaining lid is an L, not a 3 mm picture-frame.
+      Not an SMA well. Antenna holes are a later SKU.
+  - id: mouse-hole
+    live: true
+    kind: cutout
+    module: fabkit/enclosure_tray.py
+    pattern: device-tray
+    etalon: fixtures/demo_tray.yaml
+    notes: >-
+      U-slot in the −Y wall, open to the bed, for mains / switching
+      wires. Cut after the bed chamfer; floor grooves stay inside the
+      cavity and do not kiss the outer face. Not a bought gland, not an
+      SMA well. One hole under the PSU toward the socket (operator: not
+      three).
+  - id: floor-mount
+    live: true
+    kind: fastener
+    module: fabkit/enclosure_tray.py
+    pattern: device-tray
+    etalon: fixtures/demo_tray.yaml
+    notes: >-
+      Through-hole Ø3.4 + solid 2 mm pad Ø10 in the cavity floor at
+      pocket.mounts (GSM ears on the 50 mm centerline, socket pair on
+      the 67 mm centerline). Socket: hole-edge ~12 mm from ±Y. GSM
+      pitch not in the Wafer manual — 96.5 body + 4 mm inset, not
+      confirmed. No countersink well (operator: pad should be solid).
+  - id: magnet-cup
+    live: true
+    kind: fastener
+    module: fabkit/enclosure_tray.py
+    pattern: device-tray
+    etalon: fixtures/demo_tray.yaml
+    notes: >-
+      Blind disc-magnet well in the four lid posts and matching inner
+      lid bosses. Cups open on the lip/bed face (print pose: lip to
+      bed, outer roof flat). Boss OD = magnet_d + fit + 2×1.6 mm wall.
+      Centre close to the outer walls (radius + 0.8). Inserting pad is
+      clipped to the lip outer so the lid drops in; it fuses with the
+      lip as a corner rib. Etalon magnets 8×2 (operator). Not M3
+      heat-set; demo_tray still uses heat-set-m3. A closed box copies
+      the same cup on four outer corners (`magnet-corner` / `magnet-box`).
+  - id: magnet-corner
+    live: true
+    kind: fastener
+    module: fabkit/enclosure_magnet_box.py
+    pattern: magnet-box
+    etalon: magnet-box
+    notes: >-
+      Closed-box copy of magnet-cup. Four posts in the outer corners,
+      fused into both walls, from the floor up to the lid boss. Disc
+      cups in the posts and in lid bosses that hang down (lip/bed face;
+      outer roof flat). Boss OD = magnet_d + fit + 2×1.6 mm. Centre =
+      radius + 0.8 from the outer faces. Inserting pad clipped to the
+      lip outer. Etalon discs Ø5×2, wall 1.26 (3×0.42), floor 1.68.
+      Not an open tray well. Not M3.
+  - id: rest-strip
+    live: true
+    kind: fastener
+    module: fabkit/enclosure_tray.py
+    pattern: device-tray
+    etalon: fixtures/demo_tray.yaml
+    notes: >-
+      Two or three 3 mm floor ribs under GSM and the socket, same height
+      as the mount pads (2 mm), so the part cannot rock on two screws.
+      Strips run parallel to the mount pair. Not under the PSU. Not a
+      lid post.
+  - id: c-ring
+    live: true
+    kind: clip
+    module: fabkit/ring_yoke.py
+    pattern: ring-yoke
+    etalon: templates/ring_yoke
+    notes: >-
+      Open hoop, two of them coplanar. Trial holes Ø41.5 and Ø31.3.
+      Mouths 36.5 and 24.5 on opposite ends (bar -X, handle +X).
+      Handle wall 2.0 mm, bar wall 4 mm. Not crossed axes. Not an enclosure.
+  - id: strip-tooth
+    live: true
+    kind: clip
+    module: fabkit/strip_clip.py
+    pattern: strip-clip
+    etalon: templates/strip_clip
+    notes: >-
+      Channel for a power-strip body. Clear pocket 55×30 mm, band 15 mm,
+      wall 4 mm, two teeth of 10 mm. Hole centred in the top bar;
+      diameter is unconfirmed (preview Ø5, 45° teardrop). 3MF lies on
+      a side face, height 15 mm. Infill 70% is a slicer note.
+      Not an enclosure. Not ring-yoke. Not a single tooth.

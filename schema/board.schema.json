@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/BelyaevAD/enclosure-fab/blob/main/schema/board.schema.json",
+  "title": "Board library row — same contract as the generate spec (runtime validates spec.schema.json)",
+  "$ref": "spec.schema.json"
+}

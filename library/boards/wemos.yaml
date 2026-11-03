@@ -1,0 +1,37 @@
+template_id: enclosure_box
+board_id: wemos
+family: wemos
+revision: unknown
+notes: >-
+  Stub only. Assumed public-board numbers for preview. Not a measured part.
+wall_mm: 2.0
+gap_mm: 0.4
+component_clearance_mm: 8.0
+print_profile:
+  printer: bambu-p1s
+  nozzle_mm: 0.4
+  nozzle_type: hardened-steel
+  material: PLA
+  notes: recommendation, not a hard gate. Station p1s-0.4.
+photo:
+  image_ref: null
+  hypothesis_origin: null
+  measurement_request: null
+board:
+  length_mm: { value: 34.2, origin: assumed, confirmed: false }
+  width_mm: { value: 25.6, origin: assumed, confirmed: false }
+  thickness_mm: { value: 1.6, origin: assumed, confirmed: false }
+usb:
+  offset_mm:
+    x: { value: 34.2, origin: assumed, confirmed: false }
+    y: { value: 12.8, origin: assumed, confirmed: false }
+    z: { value: 1.6, origin: assumed, confirmed: false }
+  opening_wh_mm:
+    w: { value: 8.0, origin: assumed, confirmed: false }
+    h: { value: 3.2, origin: assumed, confirmed: false }
+keepout:
+  board:
+    min: [0, 0, 0]
+    max: [34.2, 25.6, 1.6]
+    origin: assumed
+    confirmed: false

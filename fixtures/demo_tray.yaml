@@ -1,0 +1,54 @@
+template_id: enclosure_tray
+board_id: demo_tray
+family: demo
+revision: fixture
+notes: Synthetic confirmed device-tray for pytest only. Not a physical SKU.
+wall_mm: 2.4
+print_profile:
+  printer: bambu-p1s
+  material: PETG
+  nozzle_mm: 0.4
+  nozzle_type: hardened-steel
+tray:
+  inner_l_mm: { value: 100.0, origin: assumed, confirmed: true }
+  inner_w_mm: { value: 80.0, origin: assumed, confirmed: true }
+  inner_h_mm: { value: 20.0, origin: assumed, confirmed: true }
+  floor_mm: 3.0
+  lid_mm: 2.5
+  lip_mm: 2.0
+  lid_fit_mm: 0.25
+  gap_xy_mm: 1.0
+  partition_t_mm: 2.4
+  insert_hole_d_mm: 4.0
+  insert_boss_d_mm: 8.8
+  insert_depth_mm: 5.0
+  screw_clear_d_mm: 3.4
+  boss_inset_mm: 6.5
+pockets:
+  gsm:
+    x_mm: { value: 12.0, origin: assumed, confirmed: true }
+    y_mm: { value: 48.0, origin: assumed, confirmed: true }
+    length_mm: { value: 76.0, origin: assumed, confirmed: true }
+    width_mm: { value: 20.0, origin: assumed, confirmed: true }
+    height_mm: { value: 16.0, origin: assumed, confirmed: true }
+    covered: true
+  psu:
+    x_mm: { value: 12.0, origin: assumed, confirmed: true }
+    y_mm: { value: 12.0, origin: assumed, confirmed: true }
+    length_mm: { value: 28.0, origin: assumed, confirmed: true }
+    width_mm: { value: 24.0, origin: assumed, confirmed: true }
+    height_mm: { value: 16.0, origin: assumed, confirmed: true }
+    covered: true
+  socket:
+    x_mm: { value: 52.0, origin: assumed, confirmed: true }
+    y_mm: { value: 12.0, origin: assumed, confirmed: true }
+    length_mm: { value: 36.0, origin: assumed, confirmed: true }
+    width_mm: { value: 24.0, origin: assumed, confirmed: true }
+    height_mm: { value: 16.0, origin: assumed, confirmed: true }
+    covered: false
+keepout:
+  tray:
+    min: [12.0, 12.0, 0.0]
+    max: [88.0, 68.0, 16.0]
+    origin: assumed
+    confirmed: true

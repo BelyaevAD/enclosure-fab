@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>enclosure-fab</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="canonical" href="https://belyaevad.github.io/enclosure-fab/">
+  <link rel="alternate" hreflang="en" href="https://belyaevad.github.io/enclosure-fab/">
+  <link rel="alternate" hreflang="ru" href="https://belyaevad.github.io/enclosure-fab/ru/">
+  <meta name="description" content="CadQuery wrapper: a YAML spec becomes STL, 3MF, and STEP. You slice the file yourself.">
+</head>
+<body>
+  <p class="lang">English · <a href="ru/">Русский</a></p>
+  <h1>enclosure-fab</h1>
+  <p>A YAML spec goes in. A mesh comes out. You open the 3MF in a slicer. This tool does not start a printer.</p>
+  <p><a href="https://github.com/BelyaevAD/enclosure-fab">Source on GitHub</a></p>
+  <h2>Round pot, vented lid</h2>
+  <p>Synthetic fixture <code>fixtures/demo_round.yaml</code>. Six holes in a separate lid. Not a measured product.</p>
+  <img src="assets/round-assembled.png" alt="Assembled round pot with a lid and six holes">
+  <img src="assets/round-print.png" alt="Pot and lid side by side for slicing">
+  <h2>Install</h2>
+  <p>CPython 3.12, then <code>pip install -r requirements.txt</code>, then <code>python scripts/fab.py preview fixtures/demo_round.yaml</code>.</p>
+</body>
+</html>

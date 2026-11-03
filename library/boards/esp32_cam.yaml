@@ -1,0 +1,51 @@
+template_id: enclosure_box
+board_id: esp32_cam
+family: esp32_cam
+revision: unknown
+notes: print mode rejected until a CAM template exists.
+wall_mm: 2.0
+gap_mm: 0.4
+component_clearance_mm: 12.0
+print_profile:
+  printer: bambu-p1s
+  nozzle_mm: 0.4
+  nozzle_type: hardened-steel
+  material: PLA
+photo:
+  image_ref: null
+  hypothesis_origin: null
+  measurement_request: "lens offset, diameter, LED, SD slot"
+board:
+  length_mm: { value: 40.5, origin: assumed, confirmed: false }
+  width_mm: { value: 27.0, origin: assumed, confirmed: false }
+  thickness_mm: { value: 1.6, origin: assumed, confirmed: false }
+usb:
+  offset_mm:
+    x: { value: 40.5, origin: assumed, confirmed: false }
+    y: { value: 13.5, origin: assumed, confirmed: false }
+    z: { value: 1.6, origin: assumed, confirmed: false }
+  opening_wh_mm:
+    w: { value: 8.0, origin: assumed, confirmed: false }
+    h: { value: 3.2, origin: assumed, confirmed: false }
+keepout:
+  board:
+    min: [0, 0, 0]
+    max: [40.5, 27.0, 1.6]
+    origin: assumed
+    confirmed: false
+cam:
+  lens_offset_mm:
+    x: { value: 20.0, origin: assumed, confirmed: false }
+    y: { value: 13.5, origin: assumed, confirmed: false }
+    z: { value: 8.0, origin: assumed, confirmed: false }
+  lens_diameter_mm: { value: 8.0, origin: assumed, confirmed: false }
+  led:
+    min: [16.0, 20.0, 1.6]
+    max: [20.0, 24.0, 4.0]
+    origin: assumed
+    confirmed: false
+  sd_slot:
+    min: [0.0, 8.0, 0.0]
+    max: [2.0, 20.0, 2.0]
+    origin: assumed
+    confirmed: false

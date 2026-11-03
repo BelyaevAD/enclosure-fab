@@ -1,0 +1,107 @@
+# Recipe pins, not vendored source. Re-check URL when touching the matching primitive.
+pins:
+  - id: cq_enclosure_builder
+    url: https://github.com/raphael-isvelin/cq_enclosure_builder
+    license: Apache-2.0
+    kernel: cadquery
+    last_checked: 2026-09-13
+    vendor: false
+    steal: >-
+      Panel-mount button cutouts (PBS-*), rectangular air_vent, layout grids.
+      Not a wall flex-tab. Do not replace fabkit with this generator.
+  - id: shellforge
+    url: https://github.com/Brokenwatch24/shellforge
+    license: unknown
+    kernel: cadquery
+    last_checked: 2026-09-13
+    vendor: false
+    steal: Connector cutout profiles (USB/HDMI/RJ45). No flex-tab library.
+  - id: cq-enclosure
+    url: https://pypi.org/project/cq-enclosure/
+    license: unknown
+    kernel: cadquery
+    last_checked: 2026-09-13
+    vendor: false
+    steal: IP66 gasket/screw box. Not our snap + chimney recipe.
+  - id: cadquery-contrib-parametric-enclosure
+    url: https://github.com/CadQuery/cadquery-contrib/blob/master/examples/Parametric_Enclosure.py
+    license: Apache-2.0
+    kernel: cadquery
+    last_checked: 2026-09-15
+    vendor: false
+    steal: Screw-post split box. Live device-shell is fabkit/enclosure_shell.py, not this example.
+  - id: yapp-box
+    url: https://github.com/mrWheel/YAPP_Box
+    license: unknown
+    kernel: openscad
+    last_checked: 2026-09-13
+    vendor: false
+    steal: >-
+      PCB-box cutout arrays, honeycomb mask on the base. OpenSCAD — do not
+      submodule. Reset on Arduino clone is a circle cutout, not a flex-tab.
+  - id: bosl2
+    url: https://github.com/BelfrySCAD/BOSL2
+    license: BSD-2-Clause
+    kernel: openscad
+    last_checked: 2026-09-13
+    vendor: false
+    steal: Masks, grids, building blocks. Huge; reimplement one recipe in CadQuery when needed.
+  - id: nopscadlib
+    url: https://github.com/nophead/NopSCADlib
+    license: unknown
+    kernel: openscad
+    last_checked: 2026-09-13
+    vendor: false
+    steal: vitamins/button.scad models tactile switches, not a wall tongue.
+  - id: printables-pip-button
+    url: https://www.printables.com/model/1380437-print-in-place-button
+    license: CC0
+    kernel: stl
+    last_checked: 2026-09-13
+    vendor: false
+    steal: Tear-away / cut-out after print so the actuator is free. CAD ties, not Studio supports.
+  - id: printables-malolos-pi-flexure
+    url: https://www.printables.com/model/1733684-malolos-raspberry-pi-3-model-b-with-22-6-buttons-l
+    license: unknown
+    kernel: stl
+    last_checked: 2026-09-13
+    vendor: false
+    steal: U-slot 0.8 on a 0.4 nozzle. Their slot is on the bed; ours is in a standing wall.
+  - id: sovol-print-in-place
+    url: https://www.sovol3d.com/blogs/news/print-in-place-3d-printing-how-to-design-hinges-joints-and-moving-parts-that-actually-work
+    license: article
+    kernel: n/a
+    last_checked: 2026-09-13
+    vendor: false
+    steal: Do not put slicer supports in a flexure gap (scars lock the joint). Self-support in CAD.
+  - id: tommy-sacrificial-bridge
+    url: https://blog.tommy.sh/posts/quick-tip-avoid-3d-printed-supports-with-sacrificial-bridge/
+    license: article
+    kernel: n/a
+    last_checked: 2026-09-13
+    vendor: false
+    steal: >-
+      Thin CAD bridge instead of slicer supports; snip or drill after print.
+      Hackaday 2017-10-17 same tip. Our whiskers are mousebites in the U kerf,
+      one 0.4-nozzle line. Not a YAPP lid button. Not a diamond island.
+  - id: makerworld-parametric-grid
+    url: https://makerworld.com/en/models/2489839-parametric-ventilation-filter-grid-openscad
+    license: unknown
+    kernel: openscad
+    last_checked: 2026-09-13
+    vendor: false
+    steal: Names for grid-45 vs louver-45. Live grid-45 cutter is fabkit/vents.py (wemos/header). Not a vendored OpenSCAD filter.
+  - id: ruthex-m3
+    url: https://www.3djake.com/ruthex/threaded-insert-m3s-100-pieces
+    license: vendor
+    kernel: n/a
+    last_checked: 2026-09-15
+    vendor: false
+    steal: M3 short D3 hole 4.0 mm, min wall 1.6. Standard M3 length 5.7. CAD 4.0; FDM prints small — operator may drill. Not shrink in confirmed.
+  - id: bimed-gland-chart
+    url: https://www.bimedteknik.com/en/blog/cable-gland-size-chart-metric-pg--npt
+    license: article
+    kernel: n/a
+    last_checked: 2026-09-15
+    vendor: false
+    steal: Panel cut-out M12 12.5 / M16 16.2. Bought gland + nut. Do not print the thread.

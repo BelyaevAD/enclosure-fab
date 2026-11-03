@@ -1,0 +1,8 @@
+# Zone venv only. Create with: py -3.12 -m venv .venv
+# Interpreter pin is CPython 3.12 (fabkit/runtime.py). Bare py on this station is 3.13.
+# CadQuery 2.8.0 requires cadquery-ocp>=7.9.3.1,<8. Do not pip install -U (vtk, numba, numpy float).
+cadquery==2.8.0
+mcp==2.3.0
+pyyaml==6.0.3
+jsonschema==4.26.0
+pytest==9.2.0

@@ -1,0 +1,19 @@
+template_id: enclosure_round
+board_id: demo_round
+family: demo
+revision: fixture
+notes: Synthetic round pot with a vented lid. Not a physical SKU.
+wall_mm: 2.0
+case:
+  outer_d_mm: 40
+  body_h_mm: 18
+  lid_t_mm: 2
+  vent_d_mm: 3
+  vent_n: 6
+print_profile:
+  printer: bambu-p1s
+  material: PLA
+photo:
+  image_ref: null
+  hypothesis_origin: null
+  measurement_request: null

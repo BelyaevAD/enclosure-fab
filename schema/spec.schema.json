@@ -1,0 +1,613 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/BelyaevAD/enclosure-fab/blob/main/schema/spec.schema.json",
+  "title": "Enclosure generate spec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["template_id", "board_id", "family"],
+  "allOf": [
+    {
+      "if": {
+        "properties": { "template_id": { "const": "doll_mary_jane" } },
+        "required": ["template_id"]
+      },
+      "then": {
+        "required": ["shoe", "keepout"],
+        "properties": {
+          "keepout": { "required": ["foot"] }
+        }
+      },
+      "else": {
+        "if": {
+          "properties": { "template_id": { "const": "enclosure_shell" } },
+          "required": ["template_id"]
+        },
+        "then": {
+          "required": ["device", "keepout"],
+          "properties": {
+            "keepout": { "required": ["device"] }
+          }
+        },
+        "else": {
+          "if": {
+            "properties": { "template_id": { "const": "enclosure_tray" } },
+            "required": ["template_id"]
+          },
+          "then": {
+            "required": ["tray", "pockets", "keepout"],
+            "properties": {
+              "keepout": { "required": ["tray"] }
+            }
+          },
+          "else": {
+            "if": {
+              "properties": { "template_id": { "const": "ring_yoke" } },
+              "required": ["template_id"]
+            },
+              "then": {
+                "required": ["rings", "keepout"],
+                "properties": {
+                  "keepout": { "required": ["bores"] }
+                }
+              },
+              "else": {
+                "if": {
+                  "properties": { "template_id": { "const": "enclosure_magnet_box" } },
+                  "required": ["template_id"]
+                },
+                "then": {
+                  "required": ["box", "keepout"],
+                  "properties": {
+                    "keepout": { "required": ["box"] }
+                  }
+                },
+                "else": {
+                  "if": {
+                    "properties": { "template_id": { "const": "strip_clip" } },
+                    "required": ["template_id"]
+                  },
+                  "then": {
+                    "required": ["clip", "keepout"],
+                    "properties": {
+                      "keepout": { "required": ["pocket"] }
+                    }
+                  },
+                  "else": {
+                    "if": {
+                      "properties": { "template_id": { "const": "enclosure_round" } },
+                      "required": ["template_id"]
+                    },
+                    "then": {
+                      "required": ["case"],
+                      "properties": {
+                        "case": {
+                          "required": ["outer_d_mm", "body_h_mm", "lid_t_mm", "vent_d_mm", "vent_n"]
+                        }
+                      }
+                    },
+                    "else": {
+                      "required": ["board", "usb", "keepout"],
+                      "properties": {
+                        "keepout": { "required": ["board"] }
+                      }
+                    }
+                  }
+                }
+              }
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "template_id": { "type": "string", "enum": ["enclosure_box", "enclosure_snap", "enclosure_shell", "enclosure_tray", "enclosure_magnet_box", "enclosure_round", "doll_mary_jane", "ring_yoke", "strip_clip"] },
+    "board_id": { "type": "string", "minLength": 1 },
+    "family": {
+      "type": "string",
+      "enum": ["wemos", "wemos2", "esp32_cam", "esp32_devkit", "demo", "dcdc", "fashion_doll"]
+    },
+    "revision": { "type": "string" },
+    "notes": { "type": "string" },
+    "print_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "printer": { "type": "string" },
+        "material": { "type": "string" },
+        "nozzle_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "nozzle_type": {
+          "type": "string",
+          "enum": ["hardened-steel", "stainless"]
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "photo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "image_ref": { "type": ["string", "null"] },
+        "hypothesis_origin": { "type": ["string", "null"] },
+        "measurement_request": { "type": ["string", "null"] }
+      }
+    },
+    "wall_mm": { "type": "number", "exclusiveMinimum": 0 },
+    "gap_mm": { "type": "number", "minimum": 0 },
+    "component_clearance_mm": { "type": "number", "minimum": 0 },
+    "board": { "$ref": "#/$defs/boardDims" },
+    "device": { "$ref": "#/$defs/deviceDims" },
+    "tray": { "$ref": "#/$defs/tray" },
+    "box": { "$ref": "#/$defs/magnetBox" },
+    "pockets": { "$ref": "#/$defs/pockets" },
+    "shell": { "$ref": "#/$defs/shell" },
+    "usb": { "$ref": "#/$defs/usb" },
+    "keepout": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "board": { "$ref": "#/$defs/aabb" },
+        "device": { "$ref": "#/$defs/aabb" },
+        "foot": { "$ref": "#/$defs/aabb" },
+        "tray": { "$ref": "#/$defs/aabb" },
+        "box": { "$ref": "#/$defs/aabb" },
+        "bores": { "$ref": "#/$defs/boreKeepout" },
+        "pocket": { "$ref": "#/$defs/boreKeepout" }
+      }
+    },
+    "shoe": { "$ref": "#/$defs/shoe" },
+    "rings": { "$ref": "#/$defs/rings" },
+    "clip": { "$ref": "#/$defs/clip" },
+    "cam": { "$ref": "#/$defs/cam" },
+    "headers": { "$ref": "#/$defs/headers" },
+    "button": { "$ref": "#/$defs/button" },
+    "case": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "inner_l_mm": { "type": "number" },
+        "inner_w_mm": { "type": "number" },
+        "outer_l_mm": { "type": "number" },
+        "outer_w_mm": { "type": "number" },
+        "base_h_mm": { "type": "number" },
+        "lid_h_mm": { "type": "number" },
+        "post_h_mm": { "type": "number" },
+        "post_size_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "post_inset_mm": { "type": "number", "minimum": 0 },
+        "rib_h_mm": { "type": "number" },
+        "press_board": { "type": "boolean" },
+        "snap_mm": { "type": "number" },
+        "inlet_d_mm": { "type": "number" },
+        "gap_y_mm": { "type": "number" },
+        "opening_clearance_mm": { "type": "number", "minimum": 0 },
+        "lid_fit_mm": { "type": "number", "minimum": 0 },
+        "lid_open_usb": { "type": "boolean" },
+        "outer_d_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "body_h_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "lid_t_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "vent_d_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "vent_n": { "type": "integer", "minimum": 1 },
+        "vents": { "$ref": "#/$defs/vents" }
+      }
+    }
+  },
+  "$defs": {
+    "measured": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "origin", "confirmed"],
+      "properties": {
+        "value": { "type": "number" },
+        "origin": {
+          "type": "string",
+          "enum": ["datasheet", "measured", "photo_estimate", "assumed"]
+        },
+        "confirmed": { "type": "boolean" }
+      }
+    },
+    "boardDims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["length_mm", "width_mm", "thickness_mm"],
+      "properties": {
+        "length_mm": { "$ref": "#/$defs/measured" },
+        "width_mm": { "$ref": "#/$defs/measured" },
+        "thickness_mm": { "$ref": "#/$defs/measured" }
+      }
+    },
+    "deviceDims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["length_mm", "width_mm", "height_mm"],
+      "properties": {
+        "length_mm": { "$ref": "#/$defs/measured" },
+        "width_mm": { "$ref": "#/$defs/measured" },
+        "height_mm": { "$ref": "#/$defs/measured" }
+      }
+    },
+    "tray": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["inner_l_mm", "inner_w_mm", "inner_h_mm"],
+      "properties": {
+        "inner_l_mm": { "$ref": "#/$defs/measured" },
+        "inner_w_mm": { "$ref": "#/$defs/measured" },
+        "inner_h_mm": { "$ref": "#/$defs/measured" },
+        "floor_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "lid_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "lip_mm": { "type": "number", "minimum": 0 },
+        "lid_fit_mm": { "type": "number", "minimum": 0 },
+        "gap_xy_mm": { "type": "number", "minimum": 0 },
+        "partition_t_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "insert_hole_d_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "insert_boss_d_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "insert_depth_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "screw_clear_d_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "boss_inset_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "wire_channels": { "type": "boolean" },
+        "magnet_d_mm": { "$ref": "#/$defs/measured" },
+        "magnet_h_mm": { "$ref": "#/$defs/measured" },
+        "magnet_fit_mm": { "type": "number", "minimum": 0 },
+        "notes": { "type": "string" }
+      }
+    },
+    "magnetBox": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outer_l_mm", "outer_w_mm", "outer_h_mm", "magnet_d_mm", "magnet_h_mm"],
+      "properties": {
+        "outer_l_mm": { "$ref": "#/$defs/measured" },
+        "outer_w_mm": { "$ref": "#/$defs/measured" },
+        "outer_h_mm": { "$ref": "#/$defs/measured" },
+        "floor_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "lid_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "lip_mm": { "type": "number", "minimum": 0 },
+        "lid_fit_mm": { "type": "number", "minimum": 0 },
+        "magnet_d_mm": { "$ref": "#/$defs/measured" },
+        "magnet_h_mm": { "$ref": "#/$defs/measured" },
+        "magnet_fit_mm": { "type": "number", "minimum": 0 },
+        "rib_t_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "notes": { "type": "string" }
+      }
+    },
+    "pockets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gsm", "psu", "socket"],
+      "properties": {
+        "gsm": { "$ref": "#/$defs/pocket" },
+        "psu": { "$ref": "#/$defs/pocket" },
+        "socket": { "$ref": "#/$defs/pocket" }
+      }
+    },
+    "pocket": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x_mm", "y_mm", "length_mm", "width_mm", "height_mm"],
+      "properties": {
+        "x_mm": { "$ref": "#/$defs/measured" },
+        "y_mm": { "$ref": "#/$defs/measured" },
+        "length_mm": { "$ref": "#/$defs/measured" },
+        "width_mm": { "$ref": "#/$defs/measured" },
+        "height_mm": { "$ref": "#/$defs/measured" },
+        "covered": { "type": "boolean" },
+        "sma": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["y_mm", "z_mm"],
+          "properties": {
+            "y_mm": { "$ref": "#/$defs/measured" },
+            "z_mm": { "$ref": "#/$defs/measured" },
+            "d_mm": { "type": "number", "exclusiveMinimum": 0 },
+            "face": { "type": "string", "enum": ["plus_x"] }
+          }
+        },
+        "mounts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["x_mm", "y_mm"],
+            "properties": {
+              "x_mm": { "$ref": "#/$defs/measured" },
+              "y_mm": { "$ref": "#/$defs/measured" },
+              "d_mm": { "type": "number", "exclusiveMinimum": 0 }
+            }
+          }
+        },
+        "rest_strips": { "type": "boolean" }
+      }
+    },
+    "shell": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gap_xy_mm": { "type": "number", "minimum": 0 },
+        "gap_z_mm": { "type": "number", "minimum": 0 },
+        "gallery_mm": { "type": "number", "minimum": 0 },
+        "cable_chamber_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "partition_t_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "hv_width_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "floor_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "lid_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "lip_mm": { "type": "number", "minimum": 0 },
+        "lid_fit_mm": { "type": "number", "minimum": 0 },
+        "corner_r_mm": { "type": "number", "minimum": 0 },
+        "insert_hole_d_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "insert_boss_d_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "insert_depth_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "screw_clear_d_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "boss_inset_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "gland_hv_d_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "gland_lv_d_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "sma": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["x_mm", "y_mm"],
+          "properties": {
+            "x_mm": { "$ref": "#/$defs/measured" },
+            "y_mm": { "$ref": "#/$defs/measured" },
+            "clearance_d_mm": { "type": "number", "exclusiveMinimum": 0 },
+            "slot_to_minus_x": { "type": "boolean" }
+          }
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "usb": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["offset_mm", "opening_wh_mm"],
+      "properties": {
+        "offset_mm": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["x", "y", "z"],
+          "properties": {
+            "x": { "$ref": "#/$defs/measured" },
+            "y": { "$ref": "#/$defs/measured" },
+            "z": { "$ref": "#/$defs/measured" }
+          }
+        },
+        "opening_wh_mm": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["w", "h"],
+          "properties": {
+            "w": { "$ref": "#/$defs/measured" },
+            "h": { "$ref": "#/$defs/measured" }
+          }
+        },
+        "body_l_mm": { "$ref": "#/$defs/measured" }
+      }
+    },
+    "aabb": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min", "max", "origin", "confirmed"],
+      "properties": {
+        "min": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "type": "number" }
+        },
+        "max": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "type": "number" }
+        },
+        "origin": {
+          "type": "string",
+          "enum": ["datasheet", "measured", "photo_estimate", "assumed"]
+        },
+        "confirmed": { "type": "boolean" }
+      }
+    },
+    "vents": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "faces": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": ["lid", "floor", "plus_x", "minus_x", "plus_y", "minus_y"]
+          }
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["window", "slots", "grid-45", "louver-45", "honeycomb"],
+          "description": "Рисунок дырки. Канон имён: VENTS.md. Живой резак — window (slots = alias) или grid-45 (косые щели в грани)."
+        },
+        "orientation": {
+          "type": "string",
+          "enum": ["horizontal", "vertical"],
+          "description": "Длинная сторона окна/щели. Живой резак — только horizontal."
+        },
+        "protection": {
+          "type": "string",
+          "enum": ["open", "indoor", "dust", "drip", "sealed"],
+          "description": "Степень по просвету slot_w_mm, не IP-сертификат. VENTS.md."
+        },
+        "pattern": { "type": "string", "enum": ["honeycomb", "slots"] },
+        "slot_w_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "ligament_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "notes": { "type": "string" }
+      }
+    },
+    "shoe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "foot_length_mm",
+        "foot_width_mm",
+        "foot_height_mm",
+        "heel_lift_mm",
+        "ankle_diameter_mm",
+        "strap_width_mm",
+        "strap_thickness_mm",
+        "clip_gap_mm"
+      ],
+      "properties": {
+        "foot_length_mm": { "$ref": "#/$defs/measured" },
+        "foot_width_mm": { "$ref": "#/$defs/measured" },
+        "foot_height_mm": { "$ref": "#/$defs/measured" },
+        "heel_lift_mm": { "$ref": "#/$defs/measured" },
+        "ankle_diameter_mm": { "$ref": "#/$defs/measured" },
+        "strap_width_mm": { "$ref": "#/$defs/measured" },
+        "strap_thickness_mm": { "$ref": "#/$defs/measured" },
+        "clip_gap_mm": { "$ref": "#/$defs/measured" }
+      }
+    },
+    "ringClip": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["circumference_mm", "mouth_mm"],
+      "properties": {
+        "circumference_mm": { "$ref": "#/$defs/measured" },
+        "mouth_mm": { "$ref": "#/$defs/measured" },
+        "wall_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "notes": { "type": "string" }
+      }
+    },
+    "clip": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["inner_x_mm", "inner_z_mm", "band_mm", "tooth_mm", "hole_d_mm"],
+      "properties": {
+        "inner_x_mm": { "$ref": "#/$defs/measured" },
+        "inner_z_mm": { "$ref": "#/$defs/measured" },
+        "band_mm": { "$ref": "#/$defs/measured" },
+        "tooth_mm": { "$ref": "#/$defs/measured" },
+        "hole_d_mm": { "$ref": "#/$defs/measured" },
+        "tooth_side": { "type": "string", "enum": ["both"] },
+        "notes": { "type": "string" }
+      }
+    },
+    "rings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["band_mm", "bar", "handle"],
+      "properties": {
+        "band_mm": { "$ref": "#/$defs/measured" },
+        "bar": { "$ref": "#/$defs/ringClip" },
+        "handle": { "$ref": "#/$defs/ringClip" }
+      }
+    },
+    "boreKeepout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["origin", "confirmed"],
+      "properties": {
+        "origin": {
+          "type": "string",
+          "enum": ["datasheet", "measured", "photo_estimate", "assumed"]
+        },
+        "confirmed": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "cam": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lens_offset_mm": {
+          "type": "object",
+          "properties": {
+            "x": { "$ref": "#/$defs/measured" },
+            "y": { "$ref": "#/$defs/measured" },
+            "z": { "$ref": "#/$defs/measured" }
+          }
+        },
+        "lens_diameter_mm": { "$ref": "#/$defs/measured" },
+        "led": { "$ref": "#/$defs/aabb" },
+        "sd_slot": { "$ref": "#/$defs/aabb" }
+      }
+    },
+    "headers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slot_w_mm", "rows"],
+      "properties": {
+        "slot_w_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "notes": { "type": "string" },
+        "rows": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["y_mm", "x0_mm", "x1_mm"],
+            "properties": {
+              "y_mm": { "$ref": "#/$defs/measured" },
+              "x0_mm": { "$ref": "#/$defs/measured" },
+              "x1_mm": { "$ref": "#/$defs/measured" }
+            }
+          }
+        }
+      }
+    },
+    "button": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["face", "offset_mm", "opening_wh_mm"],
+      "properties": {
+        "face": {
+          "type": "string",
+          "enum": ["plus_x", "minus_x", "plus_y", "minus_y"]
+        },
+        "style": {
+          "type": "string",
+          "enum": ["window", "flex_tab"]
+        },
+        "hinge": {
+          "type": "string",
+          "enum": ["plus_x", "minus_x", "plus_y", "minus_y"]
+        },
+        "slot_mm": { "type": "number" },
+        "tab_t_mm": { "type": "number" },
+        "nub_mm": { "type": "number" },
+        "tie_mm": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Breakaway tick width in the U-slot (default 0.42). 0 disables CAD ties."
+        },
+        "tie_pitch_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Centre-to-centre of CAD ties along the long slits (default 3.2)."
+        },
+        "nub_wh_mm": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "w": { "type": "number" },
+            "h": { "type": "number" }
+          }
+        },
+        "offset_mm": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["z"],
+          "properties": {
+            "x": { "$ref": "#/$defs/measured" },
+            "y": { "$ref": "#/$defs/measured" },
+            "z": { "$ref": "#/$defs/measured" }
+          }
+        },
+        "opening_wh_mm": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["w", "h"],
+          "properties": {
+            "w": { "$ref": "#/$defs/measured" },
+            "h": { "$ref": "#/$defs/measured" }
+          }
+        },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+ventilation: |
+  Vents only when the operator names the face(s): lid / floor / plus_x / minus_x / plus_y / minus_y.
+  Do not invent vents because a family "gets warm".
+  Chimney: intake low, exhaust high. One named face → propose the opposite, wait.
+  FDM: snap-base wall intake is pattern shed-slot (window in the face, rim a
+  loop, 45° shed lintel) or grid-45 when the operator asks for a 45° mesh
+  (parallel slits, no 90° lintel). Crenels through the rim tear the snap groove;
+  a two-sided 45° gable peak in a 1.5 mm wall still hangs inner walls.
+  Roof-on-bed exhaust is pattern roof-bed-well
+  (well through roof+skirt, end rails stay). 2.4 plus 0.6 mm
+  flare on a closed hole in a 1.5 mm plate still closes in Studio.
+  Ligaments ≥ 2.5 mm on the roof (6×0.42).
+  Target ~15% open area on the two chimney faces (MiniCAD). Do not exceed ~25% on a 1.5 mm wall without asking.
+  Ask before cutting: snap walls (±Y on enclosure_snap), USB +X, inlet −X, floor (bed / elephant foot),
+  slots < 1.5 mm, supports, IP/dust vs open holes, keep-out / finger access to live copper.
+  Lid skirt hangs INSIDE the base — vents into that fit gap are blocked by the walls.
+  Lid exhaust is roof-bed-well: three inset wells in the roof center (end rails stay,
+  one solid). Do not cut through both short ±X ends — the lid falls into bars.
+  Not crenels on the lid ±Y skirt (snap bead). Base ±Y/−X intake is shed-slot
+  (window) or grid-45 (diagonal slits); do not crenel the rim.
+  Header-snap: pin-row wells are the exhaust; roof center stays closed.
+  Spec: case.vents (kind, orientation, protection, slot_w_mm). enclosure_snap
+  cuts rectangular windows when faces are set. enclosure_box does not
+  cut yet — extend fabkit, no overlay. A vented SKU is a new folder inside the family,
+  not a patch on a sealed sibling. Reuse patterns chimney-snap / shed-slot / roof-bed-well
+  in docs/patterns.md. Operator names for the opening
+  (окно / сетка 45° / жалюзи 45° / горизонтальные / просвет) are VENTS.md. Live wall
+  cutter is window+horizontal (shed-slot) or grid-45 (parallel 45° slits).
+  louver-45 and vertical fail validate instead of faking windows.
+
+printer: |
+  Station is Bambu Lab P1S (256 mm cube, enclosed). Nozzle is hardened steel 0.4 mm
+  (stock P1S is stainless 0.4). Many filaments — do not bake one material's shrink
+  into confirmed millimetres. Design for ~0.42 mm line width; walls ≥ 1.2 mm;
+  roof-on-bed exhaust is a well/grill (not a closed 1.8–2.4 hole in a 1.5 mm plate);
+  wall intake is shed-slot (window) or grid-45 (diagonal slits, no 90° lintel);
+  no 0.2-nozzle details. Standing-wall flex_tab is one U-slot with CAD
+  whiskers (flex-tab-ties), not a diamond island and not slicer supports.
+  Pattern p1s-0.4 in DESIGN_PATTERNS.md.
+
+coordinate_system: |
+  Enclosure default: origin is the board corner closest to USB-left when the USB jack faces +X.
+  +X = board length (USB on the +X face). +Y = board width. +Z = up through the PCB.
+  usb.offset_mm.z is the connector-shell centre from the PCB bottom, not the FR4 top.
+  Measure from the PCB corner, not from silk or the USB plastic.
+  Fashion doll (doll_mary_jane): keepout.foot is last CS — x along the foot (0 = heel),
+  y = width, z up from the local inner sole. Mesh world origin is the back of the heel
+  counter, midline, Z=0 on the bed (ball of the sole and heel tip). +X toward the toe.
+  Device shell (enclosure_shell): keepout.device is the OEM box CS — +X toward
+  terminals, +Y width, +Z up. SMA is on the lid; glands on the +X chamber wall.
+  Device tray (enclosure_tray): keepout.tray is the inner-cavity CS — origin at
+  the −X/−Y/floor corner of the cavity (PSU-side / socket-bottom on the A4
+  sketch). +X toward the socket. +Y toward the GSM row. +Z up. Socket well
+  has no lid; antenna holes are a later SKU.
+
+common_fit_critical:
+  - board.length_mm
+  - board.width_mm
+  - board.thickness_mm
+  - usb.offset_mm.x
+  - usb.offset_mm.y
+  - usb.offset_mm.z
+  - usb.opening_wh_mm.w
+  - usb.opening_wh_mm.h
+  - keepout.board
+
+families:
+  wemos:
+    extra: []
+    notes: >-
+      USB type and overhang vary by clone (micro vs C). Do not copy another WeMos row.
+      Header-access example uses the wemos stub (pattern header-snap).
+      RESET is one U-slot flex_tab with CAD whiskers (snip after print). Wall intake is grid-45. Pin-row y / x0 / x1
+      and RESET x/z stay unconfirmed until this board is measured.
+  wemos2:
+    extra: []
+    notes: Confirm whether this is S2/S3 mini vs a second D1 clone before measuring.
+  esp32_devkit:
+    extra: []
+    notes: 30-pin vs 38-pin change length and button access. BOOT/EN under a lid is a later template.
+  esp32_cam:
+    extra:
+      - cam.lens_offset_mm
+      - cam.lens_diameter_mm
+      - cam.led
+      - cam.sd_slot
+    notes: enclosure_box does not cut a lens window. print mode is rejected for this family until a CAM template exists.
+  demo:
+    extra: []
+    notes: Synthetic fixture for tests only. Not a physical board.
+  dcdc:
+    extra: []
+    notes: >-
+      USB buck module. Measure PCB thickness. USB on +X, input wires on the opposite edge.
+      Keep-out is the component island, not the full PCB. A tall USB can needs
+      press_board false. Measure the can before print. A 45-degree wall mesh with a
+      blind lid is a separate spec, not a patch on a sealed one.
+  fashion_doll:
+    extra: []
+    fit_critical:
+      - shoe.foot_length_mm
+      - shoe.foot_width_mm
+      - shoe.foot_height_mm
+      - shoe.heel_lift_mm
+      - shoe.ankle_diameter_mm
+      - shoe.strap_width_mm
+      - shoe.strap_thickness_mm
+      - shoe.clip_gap_mm
+      - keepout.foot
+    coordinate_system: |
+      Last CS (keepout.foot): x = heel→toe, y = width, z = up from the local inner sole.
+      Mesh: heel-counter back on the midline, Z=0 = bed (forefoot sole + heel tip).
+      Measure the doll you will dress, not a catalogue photo.
+    notes: >-
+      A 1:6 fashion-doll last is often near 23 mm long. Other fashion lines differ.
+      Measure the doll you will dress.
+      Foot height and ankle are assumed until measured. Cavity = last + gap_mm per side
+      (default 0.15 → +0.3 total). Pattern mary-jane-clip.

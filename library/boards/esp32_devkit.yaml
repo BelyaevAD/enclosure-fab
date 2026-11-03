@@ -1,0 +1,35 @@
+template_id: enclosure_box
+board_id: esp32_devkit
+family: esp32_devkit
+revision: unknown
+notes: 30-pin vs 38-pin changes length. Assumed 38-pin-ish envelope.
+wall_mm: 2.0
+gap_mm: 0.4
+component_clearance_mm: 10.0
+print_profile:
+  printer: bambu-p1s
+  nozzle_mm: 0.4
+  nozzle_type: hardened-steel
+  material: PLA
+photo:
+  image_ref: null
+  hypothesis_origin: null
+  measurement_request: null
+board:
+  length_mm: { value: 52.3, origin: assumed, confirmed: false }
+  width_mm: { value: 28.2, origin: assumed, confirmed: false }
+  thickness_mm: { value: 1.6, origin: assumed, confirmed: false }
+usb:
+  offset_mm:
+    x: { value: 52.3, origin: assumed, confirmed: false }
+    y: { value: 14.1, origin: assumed, confirmed: false }
+    z: { value: 1.6, origin: assumed, confirmed: false }
+  opening_wh_mm:
+    w: { value: 9.0, origin: assumed, confirmed: false }
+    h: { value: 3.4, origin: assumed, confirmed: false }
+keepout:
+  board:
+    min: [0, 0, 0]
+    max: [52.3, 28.2, 1.6]
+    origin: assumed
+    confirmed: false

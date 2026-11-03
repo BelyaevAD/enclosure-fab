@@ -1,0 +1,35 @@
+template_id: enclosure_box
+board_id: wemos2
+family: wemos2
+revision: unknown
+notes: Confirm S2/S3 mini vs a second D1 clone before measuring.
+wall_mm: 2.0
+gap_mm: 0.4
+component_clearance_mm: 8.0
+print_profile:
+  printer: bambu-p1s
+  nozzle_mm: 0.4
+  nozzle_type: hardened-steel
+  material: PLA
+photo:
+  image_ref: null
+  hypothesis_origin: null
+  measurement_request: null
+board:
+  length_mm: { value: 34.5, origin: assumed, confirmed: false }
+  width_mm: { value: 25.4, origin: assumed, confirmed: false }
+  thickness_mm: { value: 1.6, origin: assumed, confirmed: false }
+usb:
+  offset_mm:
+    x: { value: 34.5, origin: assumed, confirmed: false }
+    y: { value: 12.7, origin: assumed, confirmed: false }
+    z: { value: 1.6, origin: assumed, confirmed: false }
+  opening_wh_mm:
+    w: { value: 9.0, origin: assumed, confirmed: false }
+    h: { value: 3.4, origin: assumed, confirmed: false }
+keepout:
+  board:
+    min: [0, 0, 0]
+    max: [34.5, 25.4, 1.6]
+    origin: assumed
+    confirmed: false
