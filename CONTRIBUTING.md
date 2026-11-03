@@ -1,7 +1,5 @@
 # Contributing
 
-English is the language of this repository. Russian files (`README.ru.md`, `SKILL.ru.md`, `docs/ru/`) are translations. Change the English text first, then the Russian file in the same change.
-
 1. Use CPython 3.12 and `pip install -r requirements.txt`. Do not upgrade the CadQuery stack with `pip install -U`.
 2. Add a fixture under `fixtures/` when you add a behavior. Do not commit a measured private part.
 3. Geometry belongs in `fabkit/` and `templates/`. Do not patch files under `.work/`.

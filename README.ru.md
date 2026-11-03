@@ -2,8 +2,6 @@
 
 **Язык:** [English](README.md) | Русский
 
-Это дополнительный текст. Основной язык репозитория и сайта — английский.
-
 Небольшая обвязка на CadQuery: YAML-спека превращается в STL, 3MF и STEP и в картинку предпросмотра. Печать запускает человек в слайсере. Программа на принтер ничего не отправляет.
 
 **Сайт:** [английская страница](https://belyaevad.github.io/enclosure-fab/) · [русская страница](https://belyaevad.github.io/enclosure-fab/ru/)
@@ -43,6 +41,6 @@ $py = ".\.venv\Scripts\python.exe"
 
 Рецепты: [docs/patterns.md](docs/patterns.md).
 
-Навык для агента на английском: [SKILL.md](SKILL.md). Русский перевод, который клиент сам не подключает: [SKILL.ru.md](SKILL.ru.md).
+Навык: [SKILL.md](SKILL.md) · [SKILL.ru.md](SKILL.ru.md).
 
 Лицензия MIT. Copyright (c) 2026 BelyaevAD.

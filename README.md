@@ -58,8 +58,6 @@ Recipes: [docs/patterns.md](docs/patterns.md).
 
 ## Agent skill
 
-Cursor, Claude Code, and Codex read the English skill. The Russian text is an extra file and is not loaded automatically.
-
 - [SKILL.md](SKILL.md)
 - [SKILL.ru.md](SKILL.ru.md)
 

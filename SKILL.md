@@ -23,5 +23,3 @@ Edit a YAML spec and a committed template. The operator opens the 3MF in a slice
 - Do not write raw CadQuery in the chat. Do not start a print. Do not open the slicer.
 - The interpreter is CPython 3.12. Do not recreate the venv with a bare `python` that is 3.13.
 - Do not run `pip install -U`.
-
-Russian text, not loaded by the client: [SKILL.ru.md](SKILL.ru.md).
