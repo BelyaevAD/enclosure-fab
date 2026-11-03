@@ -35,12 +35,24 @@ Do not run `pip install -U` on this environment. Unpinned packages under CadQuer
 
 ## Examples
 
-| Fixture | What it shows |
-|---|---|
-| `fixtures/demo_rect.yaml` | Small rectangular box with a USB-sized opening |
-| `fixtures/demo_round.yaml` | Round pot, separate lid, six holes in the lid |
-| `fixtures/demo_shell.yaml` | Shell around a device envelope |
-| `fixtures/demo_tray.yaml` | Tray with an open well and a separate lid |
+Each command writes under `.work/generated/preview/`. The name starts with `PREVIEW-`. Open the `.3mf` in the slicer.
+
+```powershell
+$py = ".\.venv\Scripts\python.exe"
+& $py scripts\fab.py preview fixtures\demo_rect.yaml
+& $py scripts\fab.py preview fixtures\demo_round.yaml
+& $py scripts\fab.py preview fixtures\demo_shell.yaml
+& $py scripts\fab.py preview fixtures\demo_tray.yaml
+```
+
+| Fixture | Template | What you should see |
+|---|---|---|
+| `fixtures/demo_rect.yaml` | `enclosure_box` | A small box, about 25×17×12 mm, with one opening on the +X face. The opening is the USB-sized window plus clearance. |
+| `fixtures/demo_round.yaml` | `enclosure_round` | A 40 mm cylinder, 18 mm tall, and a 2 mm lid with six 3 mm holes. Assembled view: lid on top. Print view: cup and lid side by side. |
+| `fixtures/demo_shell.yaml` | `enclosure_shell` | A shell around a 40×30×16 mm envelope. The lid is screwed, not snapped. |
+| `fixtures/demo_tray.yaml` | `enclosure_tray` | A tray with an inner size of 100×80×20 mm, pockets, an open well, and a separate lid. Rotate the lid in the slicer. |
+
+`usb.offset_mm.z` on the rectangular box is the connector-shell centre measured from the bottom of the board. The numbers in these files are invented. Copy a fixture and replace them with your own measurement before `print`.
 
 Recipes: [docs/patterns.md](docs/patterns.md).
 

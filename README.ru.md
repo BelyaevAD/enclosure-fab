@@ -22,12 +22,24 @@ py -3.12 -m venv .venv
 
 ## Примеры
 
-| Фикстура | Что это |
-|---|---|
-| `fixtures/demo_rect.yaml` | Прямоугольная коробка с окном под USB |
-| `fixtures/demo_round.yaml` | Круглая банка, отдельная крышка, шесть отверстий |
-| `fixtures/demo_shell.yaml` | Кожух вокруг габарита прибора |
-| `fixtures/demo_tray.yaml` | Лоток с открытым колодцем и отдельной крышкой |
+Каждая команда пишет файлы в `.work/generated/preview/`. Имя начинается с `PREVIEW-`. В слайсер открывают `.3mf`.
+
+```powershell
+$py = ".\.venv\Scripts\python.exe"
+& $py scripts\fab.py preview fixtures\demo_rect.yaml
+& $py scripts\fab.py preview fixtures\demo_round.yaml
+& $py scripts\fab.py preview fixtures\demo_shell.yaml
+& $py scripts\fab.py preview fixtures\demo_tray.yaml
+```
+
+| Фикстура | Шаблон | Что должно получиться |
+|---|---|---|
+| `fixtures/demo_rect.yaml` | `enclosure_box` | Небольшая коробка, около 25×17×12 мм, одно окно на грани +X. |
+| `fixtures/demo_round.yaml` | `enclosure_round` | Цилиндр Ø40 мм, высота 18 мм, крышка 2 мм с шестью отверстиями Ø3 мм. |
+| `fixtures/demo_shell.yaml` | `enclosure_shell` | Кожух вокруг габарита 40×30×16 мм. Крышка на винтах, не на защёлке. |
+| `fixtures/demo_tray.yaml` | `enclosure_tray` | Лоток 100×80×20 мм внутри, карманы, открытый колодец, отдельная крышка. |
+
+Числа выдуманы. Перед `print` их заменяют своим обмером. `usb.offset_mm.z` — центр кожуха разъёма от низа платы.
 
 Рецепты: [docs/patterns.md](docs/patterns.md).
 

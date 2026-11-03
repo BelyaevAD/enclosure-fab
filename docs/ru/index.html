@@ -3,24 +3,128 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>enclosure-fab</title>
-  <link rel="stylesheet" href="../assets/site.css">
+  <title>enclosure-fab — YAML-спека в сетку для печати</title>
+  <meta name="description" content="Дополнительная русская страница. Обвязка CadQuery: спека становится STL, 3MF и STEP. Печать запускает человек.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="BelyaevAD">
+  <meta name="theme-color" content="#0e221d">
   <link rel="canonical" href="https://belyaevad.github.io/enclosure-fab/ru/">
   <link rel="alternate" hreflang="en" href="https://belyaevad.github.io/enclosure-fab/">
   <link rel="alternate" hreflang="ru" href="https://belyaevad.github.io/enclosure-fab/ru/">
-  <meta name="description" content="Обвязка CadQuery: YAML-спека становится STL, 3MF и STEP. Печать запускает человек.">
+  <link rel="alternate" hreflang="x-default" href="https://belyaevad.github.io/enclosure-fab/">
+  <link rel="icon" type="image/svg+xml" href="../assets/brand-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="enclosure-fab">
+  <meta property="og:description" content="Дополнительная страница. Основной язык сайта — английский.">
+  <meta property="og:url" content="https://belyaevad.github.io/enclosure-fab/ru/">
+  <meta property="og:image" content="https://belyaevad.github.io/enclosure-fab/assets/round-assembled.png">
 </head>
 <body>
-  <p class="lang"><a href="../">English</a> · Русский</p>
-  <h1>enclosure-fab</h1>
-  <p>Дополнительная страница. Основной язык сайта — английский.</p>
-  <p>YAML-спека на входе, сетка на выходе. 3MF открывают в слайсере. Программа печать не запускает.</p>
-  <p><a href="https://github.com/BelyaevAD/enclosure-fab">Исходный код</a></p>
-  <h2>Круглая банка с вентиляцией в крышке</h2>
-  <p>Синтетическая фикстура <code>fixtures/demo_round.yaml</code>. Шесть отверстий в отдельной крышке. Это не обмеренное изделие.</p>
-  <img src="../assets/round-assembled.png" alt="Собранная круглая банка с крышкой и шестью отверстиями">
-  <img src="../assets/round-print.png" alt="Банка и крышка рядом для слайсера">
-  <h2>Установка</h2>
-  <p>CPython 3.12, затем <code>pip install -r requirements.txt</code>, затем <code>python scripts/fab.py preview fixtures/demo_round.yaml</code>.</p>
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Навигация">
+      <a class="brand" href="../">
+        <img src="../assets/brand-mark.svg" alt="" width="36" height="36">
+        <span>enclosure-fab</span>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="https://github.com/BelyaevAD/enclosure-fab#examples">Примеры</a>
+          <a href="https://github.com/BelyaevAD/enclosure-fab/blob/main/docs/patterns.md">Рецепты</a>
+        </div>
+        <div class="language-switch" aria-label="Язык">
+          <a href="../" lang="en">EN</a>
+          <a href="./" lang="ru" aria-current="page">RU</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero-band">
+      <div class="hero-inner shell">
+        <div class="hero-copy">
+          <p class="eyebrow">Дополнительная страница · Python 3.12</p>
+          <h1>enclosure-fab</h1>
+          <p class="hero-lead">Основной язык сайта — английский. Здесь то же самое по-русски: YAML-спека становится STL, 3MF и STEP. Печать запускает человек в слайсере.</p>
+          <div class="hero-actions">
+            <a class="button" href="https://github.com/BelyaevAD/enclosure-fab">Исходный код</a>
+            <a class="button secondary" href="../">English</a>
+          </div>
+          <div class="hero-meta">
+            <span>CPython 3.12</span>
+            <span>Preview — не печать</span>
+            <span>MIT</span>
+          </div>
+        </div>
+        <figure class="hero-visual">
+          <div class="hero-frame">
+            <img src="../assets/round-assembled.png" alt="Круглая банка с крышкой и шестью отверстиями" width="800" height="600">
+          </div>
+          <figcaption>fixtures/demo_round.yaml · собранный вид</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <h2>Зачем</h2>
+          <p>Тело пишет закоммиченный шаблон. Меняются числа в YAML. Отдельный скрипт в чат не вставляют.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <h3>Сначала preview</h3>
+            <p>Неподтверждённые миллиметры допустимы. Имя файла начинается с <code>PREVIEW-</code>. Это не выпуск на принтер.</p>
+          </article>
+          <article class="feature">
+            <h3>Print — отдельный гейт</h3>
+            <p><code>print</code> идёт только после подтверждения fit-critical. Если keep-out пересекает деталь, файла нет.</p>
+          </article>
+          <article class="feature">
+            <h3>Слайсер вручную</h3>
+            <p>3MF открывают как геометрию. Настройки проекта слайсера файл не содержит. Крышку поворачивают сами.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section white">
+      <div class="shell">
+        <div class="section-heading">
+          <h2>Примеры в репозитории</h2>
+          <p>Синтетические детали. Размеры выдуманы. Это не обмер живого прибора.</p>
+        </div>
+        <div class="shot-gallery">
+          <figure class="shot-card">
+            <img src="../assets/round-assembled.png" alt="Собранная круглая банка" loading="lazy">
+            <figcaption><strong>Круглая банка</strong><span>demo_round.yaml · крышка сверху, шесть отверстий</span></figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="../assets/round-print.png" alt="Банка и крышка рядом" loading="lazy">
+            <figcaption><strong>Та же банка для слайсера</strong><span>Стакан и крышка раздельно</span></figcaption>
+          </figure>
+        </div>
+        <div class="coverage">
+          <div class="coverage-item"><code>demo_rect</code><strong>Прямоугольная коробка, окно под USB на +X</strong></div>
+          <div class="coverage-item"><code>demo_round</code><strong>Цилиндр, отдельная крышка, шесть отверстий</strong></div>
+          <div class="coverage-item"><code>demo_shell</code><strong>Кожух вокруг габарита прибора</strong></div>
+          <div class="coverage-item"><code>demo_tray</code><strong>Лоток, открытый колодец, отдельная крышка</strong></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner shell">
+      <p>enclosure-fab · MIT · русский текст дополнительный</p>
+      <div class="footer-links">
+        <a href="https://github.com/BelyaevAD/enclosure-fab">GitHub</a>
+        <a href="../" lang="en">English</a>
+        <a href="https://belyaevad.github.io/">belyaevad.github.io</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

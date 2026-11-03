@@ -3,23 +3,159 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>enclosure-fab</title>
-  <link rel="stylesheet" href="assets/site.css">
+  <title>enclosure-fab — YAML spec to a printable mesh</title>
+  <meta name="description" content="CadQuery wrapper: a YAML spec becomes STL, 3MF, and STEP. Preview is not a print release. You open the file in a slicer. Python 3.12, MIT.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="BelyaevAD">
+  <meta name="theme-color" content="#0e221d">
   <link rel="canonical" href="https://belyaevad.github.io/enclosure-fab/">
   <link rel="alternate" hreflang="en" href="https://belyaevad.github.io/enclosure-fab/">
   <link rel="alternate" hreflang="ru" href="https://belyaevad.github.io/enclosure-fab/ru/">
-  <meta name="description" content="CadQuery wrapper: a YAML spec becomes STL, 3MF, and STEP. You slice the file yourself.">
+  <link rel="alternate" hreflang="x-default" href="https://belyaevad.github.io/enclosure-fab/">
+  <link rel="icon" type="image/svg+xml" href="assets/brand-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:title" content="enclosure-fab — YAML spec to a printable mesh">
+  <meta property="og:description" content="CadQuery wrapper for STL, 3MF, and STEP. You slice the file. The tool does not start a printer.">
+  <meta property="og:url" content="https://belyaevad.github.io/enclosure-fab/">
+  <meta property="og:site_name" content="enclosure-fab">
+  <meta property="og:image" content="https://belyaevad.github.io/enclosure-fab/assets/round-assembled.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="enclosure-fab">
+  <meta name="twitter:description" content="YAML spec to STL, 3MF, and STEP. Python 3.12, MIT.">
+  <meta name="twitter:image" content="https://belyaevad.github.io/enclosure-fab/assets/round-assembled.png">
 </head>
 <body>
-  <p class="lang">English · <a href="ru/">Русский</a></p>
-  <h1>enclosure-fab</h1>
-  <p>A YAML spec goes in. A mesh comes out. You open the 3MF in a slicer. This tool does not start a printer.</p>
-  <p><a href="https://github.com/BelyaevAD/enclosure-fab">Source on GitHub</a></p>
-  <h2>Round pot, vented lid</h2>
-  <p>Synthetic fixture <code>fixtures/demo_round.yaml</code>. Six holes in a separate lid. Not a measured product.</p>
-  <img src="assets/round-assembled.png" alt="Assembled round pot with a lid and six holes">
-  <img src="assets/round-print.png" alt="Pot and lid side by side for slicing">
-  <h2>Install</h2>
-  <p>CPython 3.12, then <code>pip install -r requirements.txt</code>, then <code>python scripts/fab.py preview fixtures/demo_round.yaml</code>.</p>
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Primary">
+      <a class="brand" href="./">
+        <img src="assets/brand-mark.svg" alt="" width="36" height="36">
+        <span>enclosure-fab</span>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="https://github.com/BelyaevAD/enclosure-fab#examples">Examples</a>
+          <a href="https://github.com/BelyaevAD/enclosure-fab/blob/main/docs/patterns.md">Patterns</a>
+        </div>
+        <span class="nav-star">
+          <a class="github-button" href="https://github.com/BelyaevAD/enclosure-fab" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star BelyaevAD/enclosure-fab on GitHub">Star</a>
+        </span>
+        <div class="language-switch" aria-label="Language">
+          <a href="./" lang="en" aria-current="page">EN</a>
+          <a href="ru/" lang="ru">RU</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero-band">
+      <div class="hero-inner shell">
+        <div class="hero-copy">
+          <p class="eyebrow">Python 3.12 · CadQuery</p>
+          <h1>enclosure-fab</h1>
+          <p class="hero-lead">A short YAML spec becomes STL, 3MF, and STEP. A preview image shows the part. You open the 3MF in a slicer. This program does not talk to a printer.</p>
+          <div class="hero-actions">
+            <a class="button" href="https://github.com/BelyaevAD/enclosure-fab">View source</a>
+            <a class="button secondary" href="https://github.com/BelyaevAD/enclosure-fab#install">Install</a>
+          </div>
+          <div class="hero-meta">
+            <span>CPython 3.12</span>
+            <span>Preview is not a print</span>
+            <span>MIT</span>
+          </div>
+        </div>
+        <figure class="hero-visual">
+          <div class="hero-frame">
+            <img src="assets/round-assembled.png" alt="Round pot with a lid and six ventilation holes" width="800" height="600">
+          </div>
+          <figcaption>fixtures/demo_round.yaml · assembled view</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <h2>What it is for</h2>
+          <p>The solid comes from a committed template. You change numbers in YAML. You do not paste a one-off script into the chat.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <h3>Preview first</h3>
+            <p>Unconfirmed millimetres are allowed. The file name starts with <code>PREVIEW-</code>. That file is not a release for the printer.</p>
+          </article>
+          <article class="feature">
+            <h3>Print is a gate</h3>
+            <p><code>print</code> runs only after fit-critical fields are confirmed. If the keep-out solid hits the part, the mesh is not written.</p>
+          </article>
+          <article class="feature">
+            <h3>You slice it</h3>
+            <p>Open the 3MF and load geometry only. CadQuery does not write slicer project settings. Rotate the lid yourself if the advice pose is wrong.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section white" id="examples">
+      <div class="shell">
+        <div class="section-heading">
+          <h2>Examples in the repo</h2>
+          <p>Synthetic parts with made-up sizes. Copy a fixture and change the numbers. They are not measurements of a real device.</p>
+        </div>
+        <div class="shot-gallery">
+          <figure class="shot-card">
+            <img src="assets/round-assembled.png" alt="Assembled round pot" loading="lazy">
+            <figcaption><strong>Round pot</strong><span>demo_round.yaml · lid on, six holes</span></figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="assets/round-print.png" alt="Pot and lid side by side" loading="lazy">
+            <figcaption><strong>Same pot, print pose</strong><span>Cup and lid separated so both can be sliced</span></figcaption>
+          </figure>
+        </div>
+        <div class="coverage" aria-label="Fixtures">
+          <div class="coverage-item"><code>demo_rect</code><strong>Rectangular box, USB-sized opening on +X</strong></div>
+          <div class="coverage-item"><code>demo_round</code><strong>Cylinder, separate lid, six vent holes</strong></div>
+          <div class="coverage-item"><code>demo_shell</code><strong>Shell around a device envelope</strong></div>
+          <div class="coverage-item"><code>demo_tray</code><strong>Tray, open well, separate lid</strong></div>
+        </div>
+      </div>
+    </section>
+    <section class="section dark">
+      <div class="quick-start shell">
+        <div class="quick-copy">
+          <p class="eyebrow">Install</p>
+          <h2>Python 3.12</h2>
+          <p>CadQuery 2.8 is pinned to that interpreter. Do not <code>pip install -U</code> the stack. VTK, Numba, and NumPy move together.</p>
+          <a class="button secondary" href="https://github.com/BelyaevAD/enclosure-fab#examples">All four commands</a>
+        </div>
+        <div class="code-window" aria-label="Install commands">
+          <div class="code-toolbar">
+            <span class="window-dot"></span>
+            <span class="window-dot yellow"></span>
+            <span class="window-dot green"></span>
+            <span>powershell</span>
+          </div>
+          <pre><code>py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe scripts\fab.py preview fixtures\demo_round.yaml</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner shell">
+      <p>enclosure-fab · MIT · English is the primary language</p>
+      <div class="footer-links">
+        <a href="https://github.com/BelyaevAD/enclosure-fab">GitHub</a>
+        <a href="https://github.com/BelyaevAD/enclosure-fab/blob/main/LICENSE">License</a>
+        <a href="ru/" lang="ru">Русский</a>
+        <a href="https://belyaevad.github.io/">belyaevad.github.io</a>
+      </div>
+    </div>
+  </footer>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
