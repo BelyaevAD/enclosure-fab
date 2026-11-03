@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://buttons.github.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://ghbtns.com https://buttons.github.io; connect-src 'self' https://api.github.com">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>enclosure-fab — YAML-спека в сетку для печати</title>
-  <meta name="description" content="Обвязка CadQuery: спека становится STL, 3MF и STEP. Печать запускает человек.">
+  <title>enclosure-fab — корпус из YAML</title>
+  <meta name="description" content="Короткий YAML описывает корпус. На выходе STL, 3MF, STEP и картинка. В слайсер файл кладёшь сам.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="BelyaevAD">
   <meta name="theme-color" content="#0e221d">
@@ -23,12 +23,12 @@
   <meta property="og:locale" content="ru_RU">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:title" content="enclosure-fab">
-  <meta property="og:description" content="Обвязка CadQuery: спека становится STL, 3MF и STEP. Файл открывают в слайсере.">
+  <meta property="og:description" content="Короткий YAML описывает корпус. На выходе STL, 3MF, STEP и картинка. В слайсер файл кладёшь сам.">
   <meta property="og:url" content="https://belyaevad.github.io/enclosure-fab/ru/">
   <meta property="og:image" content="https://belyaevad.github.io/enclosure-fab/assets/round-assembled.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="enclosure-fab">
-  <meta name="twitter:description" content="YAML-спека в STL, 3MF и STEP. Python 3.12, MIT.">
+  <meta name="twitter:description" content="Корпус из YAML: STL, 3MF и STEP. Python 3.12, MIT.">
   <meta name="twitter:image" content="https://belyaevad.github.io/enclosure-fab/assets/round-assembled.png">
 </head>
 <body>
@@ -59,43 +59,43 @@
         <div class="hero-copy">
           <p class="eyebrow">Python 3.12 · CadQuery</p>
           <h1>enclosure-fab</h1>
-          <p class="hero-lead">YAML-спека становится STL, 3MF и STEP. Картинка показывает деталь. 3MF открывают в слайсере. Программа с принтером не говорит.</p>
+          <p class="hero-lead">Короткий YAML описывает корпус. На выходе STL, 3MF, STEP и картинка детали. В слайсер файл открываешь сам: на принтер ничего не уходит.</p>
           <div class="hero-actions">
             <a class="button" href="https://github.com/BelyaevAD/enclosure-fab" target="_blank" rel="noopener noreferrer">Исходный код</a>
             <a class="button secondary" href="#install">Установка</a>
           </div>
           <div class="hero-meta">
             <span>CPython 3.12</span>
-            <span>Preview — не печать</span>
+            <span>Черновик — ещё не печать</span>
             <span>MIT</span>
           </div>
         </div>
         <figure class="hero-visual">
           <div class="hero-frame">
-            <img src="../assets/round-assembled.png" alt="Круглая банка с крышкой и шестью отверстиями" width="800" height="600">
+            <img src="../assets/round-assembled.png" alt="Круглый корпус с крышкой и шестью отверстиями" width="800" height="600">
           </div>
-          <figcaption>fixtures/demo_round.yaml · собранный вид</figcaption>
+          <figcaption>fixtures/demo_round.yaml · крышка на корпусе</figcaption>
         </figure>
       </div>
     </section>
     <section class="section">
       <div class="shell">
         <div class="section-heading">
-          <h2>Зачем</h2>
-          <p>Тело пишет закоммиченный шаблон. Меняются числа в YAML. Отдельный скрипт в чат не вставляют.</p>
+          <h2>Как это устроено</h2>
+          <p>Форму собирает шаблон из репозитория. В YAML меняешь размеры. Отдельный скрипт под каждую деталь не нужен.</p>
         </div>
         <div class="feature-grid">
           <article class="feature">
-            <h3>Сначала preview</h3>
-            <p>Неподтверждённые миллиметры допустимы. Имя файла начинается с <code>PREVIEW-</code>. Это не выпуск на принтер.</p>
+            <h3>Сначала черновик</h3>
+            <p>Пока размеры не проверены, файл всё равно можно собрать. Имя начинается с <code>PREVIEW-</code>. Печатать его рано.</p>
           </article>
           <article class="feature">
-            <h3>Print — отдельный гейт</h3>
-            <p><code>print</code> идёт только после подтверждения fit-critical. Если keep-out пересекает деталь, файла нет.</p>
+            <h3>Потом печать</h3>
+            <p><code>print</code> запускается, когда размеры посадки уже подтверждены. Если деталь залезла в запрещённую область, файла не будет.</p>
           </article>
           <article class="feature">
-            <h3>Слайсер вручную</h3>
-            <p>3MF открывают как геометрию. Настройки проекта слайсера файл не содержит. Крышку поворачивают сами.</p>
+            <h3>Дальше слайсер</h3>
+            <p>В 3MF только форма, без настроек слайсера. Если крышка лежит не так, поворачиваешь её сам.</p>
           </article>
         </div>
       </div>
@@ -103,24 +103,24 @@
     <section class="section white">
       <div class="shell">
         <div class="section-heading">
-          <h2>Примеры в репозитории</h2>
-          <p>Синтетические детали. Размеры выдуманы. Это не обмер живого прибора.</p>
+          <h2>Примеры</h2>
+          <p>Размеры в примерах придуманы. Скопируй файл и подставь свои: это не обмер настоящего прибора.</p>
         </div>
         <div class="shot-gallery">
           <figure class="shot-card">
-            <img src="../assets/round-assembled.png" alt="Собранная круглая банка" loading="lazy">
-            <figcaption><strong>Круглая банка</strong><span>demo_round.yaml · крышка сверху, шесть отверстий</span></figcaption>
+            <img src="../assets/round-assembled.png" alt="Круглый корпус в сборе" loading="lazy">
+            <figcaption><strong>Круглый корпус</strong><span>demo_round.yaml · крышка сверху, шесть отверстий</span></figcaption>
           </figure>
           <figure class="shot-card">
-            <img src="../assets/round-print.png" alt="Банка и крышка рядом" loading="lazy">
-            <figcaption><strong>Та же банка для слайсера</strong><span>Стакан и крышка раздельно</span></figcaption>
+            <img src="../assets/round-print.png" alt="Корпус и крышка рядом" loading="lazy">
+            <figcaption><strong>Та же деталь в слайсере</strong><span>Корпус и крышка рядом</span></figcaption>
           </figure>
         </div>
         <div class="coverage">
-          <div class="coverage-item"><code>demo_rect</code><strong>Прямоугольная коробка, окно под USB на +X</strong></div>
+          <div class="coverage-item"><code>demo_rect</code><strong>Прямоугольная коробка, окно под разъём на +X</strong></div>
           <div class="coverage-item"><code>demo_round</code><strong>Цилиндр, отдельная крышка, шесть отверстий</strong></div>
-          <div class="coverage-item"><code>demo_shell</code><strong>Кожух вокруг габарита прибора</strong></div>
-          <div class="coverage-item"><code>demo_tray</code><strong>Лоток, открытый колодец, отдельная крышка</strong></div>
+          <div class="coverage-item"><code>demo_shell</code><strong>Кожух по габариту устройства</strong></div>
+          <div class="coverage-item"><code>demo_tray</code><strong>Лоток с открытым отсеком и отдельной крышкой</strong></div>
         </div>
       </div>
     </section>
@@ -129,7 +129,7 @@
         <div class="quick-copy">
           <p class="eyebrow">Установка</p>
           <h2>Python 3.12</h2>
-          <p>Колёса CadQuery 2.8 стоят на этом интерпретаторе. Не запускайте <code>pip install -U</code>. VTK, Numba и NumPy уезжают вместе.</p>
+          <p>Пакеты CadQuery 2.8 ставятся на Python 3.12. Не запускай <code>pip install -U</code>: VTK, Numba и NumPy обновятся следом, и картинка предпросмотра может измениться.</p>
           <a class="button secondary" href="https://github.com/BelyaevAD/enclosure-fab/blob/main/README.ru.md#установка" target="_blank" rel="noopener noreferrer">Вся установка</a>
         </div>
         <div class="code-window" aria-label="Команды установки">

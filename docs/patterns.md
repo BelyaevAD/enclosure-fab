@@ -1,6 +1,6 @@
 # Patterns
 
-These recipes use the fixtures in this repository. Copy a fixture and change the numbers. Do not treat a fixture as a measured part.
+These recipes start from the fixtures in this repo. Copy one and change the numbers. The numbers are not measurements of a real part.
 
 ## Rectangular box
 
@@ -12,11 +12,11 @@ These recipes use the fixtures in this repository. Copy a fixture and change the
 
 ## Device shell
 
-`fixtures/demo_shell.yaml`, template `enclosure_shell`. A shell around a rectangular device envelope, with a screw lid rather than a snap as the only latch. Measure the real envelope before you call a file ready to print.
+`fixtures/demo_shell.yaml`, template `enclosure_shell`. A shell around a rectangular outline, with a screw lid rather than a snap as the only latch. Measure the real outline before you treat a file as ready to print.
 
 ## Tray
 
-`fixtures/demo_tray.yaml`, template `enclosure_tray`. Several pockets and an open well. The lid is a separate solid. Turn it in the slicer yourself. This file does not set a print pose for you.
+`fixtures/demo_tray.yaml`, template `enclosure_tray`. Several pockets and an open bay. The lid is a separate solid. Turn it in the slicer yourself. This file does not decide how the parts lie on the bed.
 
 ## Two rings and a channel
 
@@ -26,4 +26,4 @@ These recipes use the fixtures in this repository. Copy a fixture and change the
 
 ## Preview and print
 
-`preview` is allowed while millimetres are still assumed. The file name starts with `PREVIEW-`. `print` refuses until fit-critical fields are confirmed. A keep-out solid that intersects the part deletes the print files.
+`preview` is fine while the sizes are still a guess. The file name starts with `PREVIEW-`. `print` waits until the sizes that decide the fit are confirmed. If a keep-out cuts through the part, the print files are removed.

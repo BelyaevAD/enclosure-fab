@@ -2,13 +2,13 @@
 
 **Язык:** [English](README.md) | Русский
 
-Небольшая обвязка на CadQuery: YAML-спека превращается в STL, 3MF и STEP и в картинку предпросмотра. Печать запускает человек в слайсере. Программа на принтер ничего не отправляет.
+Короткий YAML описывает корпус. Репозиторий делает из него STL, 3MF, STEP и картинку. Файл открываешь в слайсере сам. На принтер ничего не уходит.
 
 **Сайт:** [английская страница](https://belyaevad.github.io/enclosure-fab/) · [русская страница](https://belyaevad.github.io/enclosure-fab/ru/)
 
 ## Установка
 
-Колёса CadQuery 2.8 рассчитаны на CPython 3.12.
+Пакеты CadQuery 2.8 ставятся на Python 3.12. Если обычный `python` у тебя 3.13, бери `py -3.12`.
 
 ```powershell
 git clone https://github.com/BelyaevAD/enclosure-fab.git
@@ -18,11 +18,11 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe scripts\fab.py preview fixtures\demo_round.yaml
 ```
 
-Файл `PREVIEW-*` — не разрешение на печать. 3MF открывают в Bambu Studio как геометрию. Не запускайте `pip install -U`: незакреплённые VTK, Numba и NumPy уезжают вместе и меняют предпросмотр.
+Файл `PREVIEW-*` печатать рано. 3MF открывай в Bambu Studio или другом слайсере как модель, без настроек проекта. Не запускай `pip install -U`: VTK, Numba и NumPy обновятся следом, и предпросмотр может измениться.
 
 ## Примеры
 
-Каждая команда пишет файлы в `.work/generated/preview/`. Имя начинается с `PREVIEW-`. В слайсер открывают `.3mf`.
+Команды пишут файлы в `.work/generated/preview/`. Имя начинается с `PREVIEW-`. В слайсер берёшь `.3mf`.
 
 ```powershell
 $py = ".\.venv\Scripts\python.exe"
@@ -32,30 +32,30 @@ $py = ".\.venv\Scripts\python.exe"
 & $py scripts\fab.py preview fixtures\demo_tray.yaml
 ```
 
-| Фикстура | Шаблон | Что должно получиться |
+| Файл | Шаблон | Что получится |
 |---|---|---|
-| `fixtures/demo_rect.yaml` | `enclosure_box` | Небольшая коробка, около 25×17×12 мм, одно окно на грани +X. |
+| `fixtures/demo_rect.yaml` | `enclosure_box` | Небольшая коробка, около 25×17×12 мм, одно окно под разъём на грани +X. |
 | `fixtures/demo_round.yaml` | `enclosure_round` | Цилиндр Ø40 мм, высота 18 мм, крышка 2 мм с шестью отверстиями Ø3 мм. |
-| `fixtures/demo_shell.yaml` | `enclosure_shell` | Кожух вокруг габарита 40×30×16 мм. Крышка на винтах, не на защёлке. |
-| `fixtures/demo_tray.yaml` | `enclosure_tray` | Лоток 100×80×20 мм внутри, карманы, открытый колодец, отдельная крышка. |
+| `fixtures/demo_shell.yaml` | `enclosure_shell` | Кожух по габариту 40×30×16 мм. Крышка на винтах, не на защёлке. |
+| `fixtures/demo_tray.yaml` | `enclosure_tray` | Лоток 100×80×20 мм внутри, карманы, открытый отсек, отдельная крышка. |
 
-Числа выдуманы. Перед `print` их заменяют своим обмером. `usb.offset_mm.z` — центр кожуха разъёма от низа платы.
+Числа в файлах — пример. Перед `print` подставь свои размеры. `usb.offset_mm.z` — центр корпуса разъёма, от низа платы.
 
 Рецепты: [docs/patterns.md](docs/patterns.md).
 
 ## Установка для агента
 
-Клонировать репозиторий, поднять venv на Python 3.12 и поставить `requirements.txt`, как в разделе [Установка](#установка). Дальше читать [SKILL.md](SKILL.md). Не запускать `pip install -U`. Печать не запускать.
+Клонируй репозиторий, создай виртуальное окружение на Python 3.12 и поставь зависимости, как в разделе [Установка](#установка). Потом прочитай [SKILL.md](SKILL.md). Не запускай `pip install -U` и не отправляй файл на принтер.
 
 На Linux и macOS те же шаги через `python3.12` и `.venv/bin/python`.
 
-Навык для Cursor, Claude Code и Codex уже лежит в каталоге:
+Навык для Cursor, Claude Code и Codex уже лежит здесь:
 
 - `.cursor/skills/enclosure-fab/SKILL.md`
 - `.claude/skills/enclosure-fab/SKILL.md`
 - `.agents/skills/enclosure-fab/SKILL.md`
 
-Открыть этот каталог как рабочую папку, чтобы клиент подхватил навык. `python tools/check_skills.py` сверяет три копии с `SKILL.md`.
+Открой эту папку как проект, чтобы клиент увидел навык. `python tools/check_skills.py` проверяет, что три копии совпадают с `SKILL.md`.
 
 Навык: [SKILL.md](SKILL.md) · [SKILL.ru.md](SKILL.ru.md).
 
