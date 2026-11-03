@@ -11,6 +11,8 @@
 Колёса CadQuery 2.8 рассчитаны на CPython 3.12.
 
 ```powershell
+git clone https://github.com/BelyaevAD/enclosure-fab.git
+cd enclosure-fab
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe scripts\fab.py preview fixtures\demo_round.yaml
@@ -40,6 +42,20 @@ $py = ".\.venv\Scripts\python.exe"
 Числа выдуманы. Перед `print` их заменяют своим обмером. `usb.offset_mm.z` — центр кожуха разъёма от низа платы.
 
 Рецепты: [docs/patterns.md](docs/patterns.md).
+
+## Установка для агента
+
+Клонировать репозиторий, поднять venv на Python 3.12 и поставить `requirements.txt`, как в разделе [Установка](#установка). Дальше читать [SKILL.md](SKILL.md). Не запускать `pip install -U`. Печать не запускать.
+
+На Linux и macOS те же шаги через `python3.12` и `.venv/bin/python`.
+
+Навык для Cursor, Claude Code и Codex уже лежит в каталоге:
+
+- `.cursor/skills/enclosure-fab/SKILL.md`
+- `.claude/skills/enclosure-fab/SKILL.md`
+- `.agents/skills/enclosure-fab/SKILL.md`
+
+Открыть этот каталог как рабочую папку, чтобы клиент подхватил навык. `python tools/check_skills.py` сверяет три копии с `SKILL.md`.
 
 Навык: [SKILL.md](SKILL.md) · [SKILL.ru.md](SKILL.ru.md).
 

@@ -22,6 +22,8 @@ YAML in, a printable mesh out. This repository is a CadQuery wrapper that turns 
 CadQuery 2.8 wheels target CPython 3.12. Do not use a bare `python` if that command is 3.13 on your machine.
 
 ```powershell
+git clone https://github.com/BelyaevAD/enclosure-fab.git
+cd enclosure-fab
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe scripts\fab.py preview fixtures\demo_round.yaml
@@ -55,6 +57,20 @@ $py = ".\.venv\Scripts\python.exe"
 `usb.offset_mm.z` on the rectangular box is the connector-shell centre measured from the bottom of the board. The numbers in these files are invented. Copy a fixture and replace them with your own measurement before `print`.
 
 Recipes: [docs/patterns.md](docs/patterns.md).
+
+## Agent setup
+
+Clone the repository, create the 3.12 venv, and install `requirements.txt` as in [Install](#install). Then read [SKILL.md](SKILL.md) before editing a spec. Do not run `pip install -U`. Do not start a printer.
+
+On Linux or macOS the same steps use `python3.12` and `.venv/bin/python`.
+
+This checkout already contains the skill for Cursor, Claude Code, and Codex:
+
+- `.cursor/skills/enclosure-fab/SKILL.md`
+- `.claude/skills/enclosure-fab/SKILL.md`
+- `.agents/skills/enclosure-fab/SKILL.md`
+
+Open the checkout as the workspace so the client loads that skill. `python tools/check_skills.py` checks that the three copies match `SKILL.md`.
 
 ## Agent skill
 

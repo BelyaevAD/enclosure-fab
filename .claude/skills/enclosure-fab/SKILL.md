@@ -9,9 +9,10 @@ Edit a YAML spec and a committed template. The operator opens the 3MF in a slice
 
 ## Read first
 
-1. [README.md](README.md)
-2. [docs/patterns.md](docs/patterns.md)
-3. `fixtures/` for a starting spec
+1. [AGENTS.md](AGENTS.md) to install the 3.12 venv
+2. [README.md](README.md)
+3. [docs/patterns.md](docs/patterns.md)
+4. `fixtures/` for a starting spec
 
 ## Rules
 

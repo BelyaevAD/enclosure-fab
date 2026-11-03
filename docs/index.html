@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://buttons.github.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://ghbtns.com https://buttons.github.io; connect-src 'self' https://api.github.com">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>enclosure-fab — YAML spec to a printable mesh</title>
   <meta name="description" content="CadQuery wrapper: a YAML spec becomes STL, 3MF, and STEP. Preview is not a print release. You open the file in a slicer. Python 3.12, MIT.">
@@ -12,6 +13,7 @@
   <link rel="alternate" hreflang="en" href="https://belyaevad.github.io/enclosure-fab/">
   <link rel="alternate" hreflang="ru" href="https://belyaevad.github.io/enclosure-fab/ru/">
   <link rel="alternate" hreflang="x-default" href="https://belyaevad.github.io/enclosure-fab/">
+  <link rel="sitemap" type="application/xml" href="https://belyaevad.github.io/enclosure-fab/sitemap.xml">
   <link rel="icon" type="image/svg+xml" href="assets/brand-mark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,11 +41,11 @@
       </a>
       <div class="nav-right">
         <div class="nav-links">
-          <a href="https://github.com/BelyaevAD/enclosure-fab#examples">Examples</a>
-          <a href="https://github.com/BelyaevAD/enclosure-fab/blob/main/docs/patterns.md">Patterns</a>
+          <a href="https://github.com/BelyaevAD/enclosure-fab#examples" target="_blank" rel="noopener noreferrer">Examples</a>
+          <a href="https://github.com/BelyaevAD/enclosure-fab/blob/main/docs/patterns.md" target="_blank" rel="noopener noreferrer">Patterns</a>
         </div>
         <span class="nav-star">
-          <a class="github-button" href="https://github.com/BelyaevAD/enclosure-fab" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star BelyaevAD/enclosure-fab on GitHub">Star</a>
+          <a class="github-button" href="https://github.com/BelyaevAD/enclosure-fab" rel="noopener" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star BelyaevAD/enclosure-fab on GitHub">Star</a>
         </span>
         <div class="language-switch" aria-label="Language">
           <a href="./" lang="en" aria-current="page">EN</a>
@@ -60,8 +62,8 @@
           <h1>enclosure-fab</h1>
           <p class="hero-lead">A short YAML spec becomes STL, 3MF, and STEP. A preview image shows the part. You open the 3MF in a slicer. This program does not talk to a printer.</p>
           <div class="hero-actions">
-            <a class="button" href="https://github.com/BelyaevAD/enclosure-fab">View source</a>
-            <a class="button secondary" href="https://github.com/BelyaevAD/enclosure-fab#install">Install</a>
+            <a class="button" href="https://github.com/BelyaevAD/enclosure-fab" target="_blank" rel="noopener noreferrer">View source</a>
+            <a class="button secondary" href="#install">Install</a>
           </div>
           <div class="hero-meta">
             <span>CPython 3.12</span>
@@ -123,13 +125,13 @@
         </div>
       </div>
     </section>
-    <section class="section dark">
+    <section class="section dark" id="install">
       <div class="quick-start shell">
         <div class="quick-copy">
           <p class="eyebrow">Install</p>
           <h2>Python 3.12</h2>
           <p>CadQuery 2.8 is pinned to that interpreter. Do not <code>pip install -U</code> the stack. VTK, Numba, and NumPy move together.</p>
-          <a class="button secondary" href="https://github.com/BelyaevAD/enclosure-fab#examples">All four commands</a>
+          <a class="button secondary" href="https://github.com/BelyaevAD/enclosure-fab#agent-setup" target="_blank" rel="noopener noreferrer">Full install</a>
         </div>
         <div class="code-window" aria-label="Install commands">
           <div class="code-toolbar">
@@ -138,7 +140,9 @@
             <span class="window-dot green"></span>
             <span>powershell</span>
           </div>
-          <pre><code>py -3.12 -m venv .venv
+          <pre><code>git clone https://github.com/BelyaevAD/enclosure-fab.git
+cd enclosure-fab
+py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe scripts\fab.py preview fixtures\demo_round.yaml</code></pre>
         </div>
@@ -149,10 +153,10 @@
     <div class="footer-inner shell">
       <p>enclosure-fab · MIT</p>
       <div class="footer-links">
-        <a href="https://github.com/BelyaevAD/enclosure-fab">GitHub</a>
-        <a href="https://github.com/BelyaevAD/enclosure-fab/blob/main/LICENSE">License</a>
+        <a href="https://github.com/BelyaevAD/enclosure-fab" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/BelyaevAD/enclosure-fab/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">License</a>
         <a href="ru/" lang="ru">Русский</a>
-        <a href="https://belyaevad.github.io/">belyaevad.github.io</a>
+        <a href="https://belyaevad.github.io/" target="_blank" rel="noopener noreferrer">belyaevad.github.io</a>
       </div>
     </div>
   </footer>
