@@ -1,6 +1,6 @@
 """Passive chimney vents for enclosure_snap. Call from the committed template only.
 
-Reuse recipe: docs/patterns.md. Do not fork a second
+Do not fork a second
 cutter — set case.vents and call apply_snap_vents. Roof-on-bed exhaust is a
 well inside the outline; cutting through both short ends splits the lid into
 bars. Wall intake is a closed window in the face (rim stays a loop). A U-notch

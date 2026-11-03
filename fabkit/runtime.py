@@ -10,7 +10,7 @@ REQUIRED = (3, 12)
 def require_cpython_312() -> None:
     if sys.version_info[:2] != REQUIRED:
         raise SystemExit(
-            "platforms/3d-fabrication requires CPython 3.12 (CadQuery/OCP wheels). "
+            "enclosure-fab requires CPython 3.12 (CadQuery/OCP wheels). "
             f"This interpreter is {sys.version.split()[0]}. "
-            "Use `py -3.12` or platforms/3d-fabrication/.venv."
+            "Use `py -3.12`."
         )

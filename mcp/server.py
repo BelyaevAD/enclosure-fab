@@ -34,8 +34,7 @@ _PROCESS_STARTED = time.time()
 _STALE_HINT = (
     " If this spec exists on disk, Reload MCP — this chat's fab process "
     "does not load fabkit until then. CLI: "
-    "platforms/3d-fabrication/.venv/Scripts/python.exe "
-    "platforms/3d-fabrication/scripts/fab.py preview <family/version>."
+    "python scripts/fab.py preview <spec.yaml>."
 )
 _NON_PCB_TEMPLATES = frozenset(
     {"enclosure_tray", "enclosure_shell", "enclosure_magnet_box", "doll_mary_jane", "ring_yoke", "strip_clip"}

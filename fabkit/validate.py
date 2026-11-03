@@ -650,7 +650,7 @@ def _fit_warnings(spec: dict[str, Any]) -> list[str]:
             if vents.get("pattern") == "honeycomb" or vents.get("kind") == "honeycomb":
                 out.append(
                     "kind/pattern honeycomb: enclosure_snap still cuts "
-                    "rectangular windows (VENTS.md); do not expect hex cells"
+                    "rectangular windows; do not expect hex cells"
                 )
         if slot_w < 1.5:
             out.append(f"case.vents.slot_w_mm={slot_w} < 1.5: FDM slots usually close")

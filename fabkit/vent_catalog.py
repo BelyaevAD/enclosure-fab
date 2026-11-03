@@ -1,4 +1,4 @@
-"""Operator names for enclosure vents. Canon: platforms/3d-fabrication/VENTS.md."""
+"""Operator names for enclosure vents. The messages below name the live cutters."""
 
 from __future__ import annotations
 
@@ -74,56 +74,55 @@ def catalog_issues(spec: dict[str, Any]) -> tuple[list[str], list[str]]:
 
     if kind == KIND_LOUVER_45:
         errors.append(
-            "case.vents.kind=louver-45 (жалюзи 45°, пластины сквозь стенку) "
-            "has no live cutter; not grid-45. See VENTS.md"
+            "case.vents.kind=louver-45 (45-degree blades through the wall) "
+            "has no live cutter; not grid-45."
         )
     elif kind not in LIVE_WALL_KINDS and kind != KIND_HONEYCOMB:
         errors.append(
             f"case.vents.kind={kind} is not a catalog name "
-            "(window|slots|grid-45|louver-45|honeycomb). See VENTS.md"
+            "(window|slots|grid-45|louver-45|honeycomb)."
         )
 
     if kind in LIVE_KINDS and orientation == ORIENT_VERTICAL:
         errors.append(
-            "case.vents.orientation=vertical (прямоугольные столбиком) "
-            "has no live cutter; live windows are horizontal. See VENTS.md"
+            "case.vents.orientation=vertical (upright rectangles) "
+            "has no live cutter; live windows are horizontal."
         )
     elif kind in LIVE_KINDS and orientation not in LIVE_ORIENTATIONS:
         errors.append(
-            f"case.vents.orientation={orientation} is not horizontal|vertical. "
-            "See VENTS.md"
+            f"case.vents.orientation={orientation} is not horizontal|vertical."
         )
 
     if protection == PROT_DRIP:
         errors.append(
-            "case.vents.protection=drip needs kind=louver-45 (капельные жалюзи); "
-            "that cutter is not live. See VENTS.md"
+            "case.vents.protection=drip needs kind=louver-45 (drip louvers); "
+            "that cutter is not live."
         )
     if protection == PROT_DUST:
         if "lid" in faces:
             errors.append(
                 "case.vents.protection=dust cannot use lid exhaust: "
-                "roof-on-bed wells need просвет ≥ 2.4 mm (VENTS.md)"
+                "roof-on-bed wells need a gap ≥ 2.4 mm (see the vent notes)"
             )
         elif slot_w > DUST_PROSVET_MAX_MM:
             warnings.append(
                 f"case.vents.protection=dust but slot_w_mm={slot_w} > "
-                f"{DUST_PROSVET_MAX_MM} (просвет). Narrow the slot or use indoor"
+                f"{DUST_PROSVET_MAX_MM} mm gap. Narrow the slot or use indoor"
             )
         else:
             errors.append(
-                "case.vents.protection=dust (просвет ≤ 1.2 mm) has no live cutter; "
-                "indoor wall windows start at 1.8 mm. See VENTS.md"
+                "case.vents.protection=dust (gap ≤ 1.2 mm) has no live cutter; "
+                "indoor wall windows start at 1.8 mm."
             )
     if protection == PROT_OPEN and slot_w + 1e-9 < OPEN_PROSVET_MM:
         warnings.append(
-            f"case.vents.protection=open expects просвет ≥ {OPEN_PROSVET_MM} mm; "
+            f"case.vents.protection=open expects a gap ≥ {OPEN_PROSVET_MM} mm; "
             f"slot_w_mm={slot_w} is indoor-class"
         )
     if protection == PROT_INDOOR and slot_w + 1e-9 >= PROBE_TOOL_MM:
         warnings.append(
             f"case.vents.protection=indoor but slot_w_mm={slot_w} ≥ {PROBE_TOOL_MM} "
-            "(tool probe); that is open-class просвет"
+            "(tool probe); that is an open-class gap"
         )
     if protection and protection not in {
         PROT_OPEN,
@@ -135,6 +134,6 @@ def catalog_issues(spec: dict[str, Any]) -> tuple[list[str], list[str]]:
     }:
         errors.append(
             f"case.vents.protection={protection} is not "
-            "open|indoor|dust|drip|sealed. See VENTS.md"
+            "open|indoor|dust|drip|sealed."
         )
     return warnings, errors

@@ -22,9 +22,9 @@ ventilation: |
   Spec: case.vents (kind, orientation, protection, slot_w_mm). enclosure_snap
   cuts rectangular windows when faces are set. enclosure_box does not
   cut yet — extend fabkit, no overlay. A vented SKU is a new folder inside the family,
-  not a patch on a sealed sibling. Reuse patterns chimney-snap / shed-slot / roof-bed-well
-  in docs/patterns.md. Operator names for the opening
-  (окно / сетка 45° / жалюзи 45° / горизонтальные / просвет) are VENTS.md. Live wall
+  not a patch on a sealed sibling. Names chimney-snap / shed-slot / roof-bed-well
+  are the recipes in this note. Operator names for the opening
+  (window / 45-degree grid / 45-degree louver / horizontal / gap width) are the vent catalog. Live wall
   cutter is window+horizontal (shed-slot) or grid-45 (parallel 45° slits).
   louver-45 and vertical fail validate instead of faking windows.
 
@@ -36,7 +36,7 @@ printer: |
   wall intake is shed-slot (window) or grid-45 (diagonal slits, no 90° lintel);
   no 0.2-nozzle details. Standing-wall flex_tab is one U-slot with CAD
   whiskers (flex-tab-ties), not a diamond island and not slicer supports.
-  Pattern name: p1s-0.4. See docs/patterns.md.
+  Pattern name: p1s-0.4.
 
 coordinate_system: |
   Enclosure default: origin is the board corner closest to USB-left when the USB jack faces +X.

@@ -419,17 +419,17 @@
         "kind": {
           "type": "string",
           "enum": ["window", "slots", "grid-45", "louver-45", "honeycomb"],
-          "description": "Рисунок дырки. Канон имён: VENTS.md. Живой резак — window (slots = alias) или grid-45 (косые щели в грани)."
+          "description": "Opening shape. A live cutter is window (slots is an alias) or grid-45 (diagonal slits in the face)."
         },
         "orientation": {
           "type": "string",
           "enum": ["horizontal", "vertical"],
-          "description": "Длинная сторона окна/щели. Живой резак — только horizontal."
+          "description": "Long side of the window or slit. The live cutter is horizontal only."
         },
         "protection": {
           "type": "string",
           "enum": ["open", "indoor", "dust", "drip", "sealed"],
-          "description": "Степень по просвету slot_w_mm, не IP-сертификат. VENTS.md."
+          "description": "How open the slot is, from slot_w_mm. Not an IP rating."
         },
         "pattern": { "type": "string", "enum": ["honeycomb", "slots"] },
         "slot_w_mm": { "type": "number", "exclusiveMinimum": 0 },
