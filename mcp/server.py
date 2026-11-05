@@ -37,7 +37,7 @@ _STALE_HINT = (
     "python scripts/fab.py preview <spec.yaml>."
 )
 _NON_PCB_TEMPLATES = frozenset(
-    {"enclosure_tray", "enclosure_shell", "enclosure_magnet_box", "doll_mary_jane", "ring_yoke", "strip_clip"}
+    {"enclosure_tray", "enclosure_shell", "enclosure_magnet_box", "ring_yoke", "strip_clip"}
 )
 
 

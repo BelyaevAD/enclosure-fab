@@ -56,7 +56,6 @@ Every template has a fixture. The numbers are made up. Copy a file and put in yo
 | `demo_magnet_box` | `enclosure_magnet_box` | A closed box 90×70×40 mm. The lid sits on Ø6×2 disc magnets in the corner posts. |
 | `demo_ring_yoke` | `ring_yoke` | Two C-rings in one flat plate, 12 mm thick. The mouths face opposite ends. |
 | `demo_strip_clip` | `strip_clip` | A channel clip with a 40×20 mm pocket, two teeth, and a hole in the top bar. |
-| `demo_doll_shoe` | `doll_mary_jane` | A pair of doll shoes about 25 mm long with a strap and an ankle clip. |
 
 ```powershell
 $py = ".\.venv\Scripts\python.exe"

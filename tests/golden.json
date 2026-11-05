@@ -1,43 +1,4 @@
 {
-  "demo_doll_shoe": {
-    "assembled": {
-      "size": [
-        25.143,
-        10.2,
-        16.15
-      ],
-      "solids": 1,
-      "volume": 851.656
-    },
-    "base": {
-      "size": [
-        25.143,
-        10.2,
-        16.15
-      ],
-      "solids": 1,
-      "volume": 851.656
-    },
-    "keepout_volume": 0.0,
-    "lid": {
-      "size": [
-        25.143,
-        10.2,
-        16.15
-      ],
-      "solids": 1,
-      "volume": 851.656
-    },
-    "printable": {
-      "size": [
-        25.143,
-        25.3,
-        16.15
-      ],
-      "solids": 2,
-      "volume": 1703.312
-    }
-  },
   "demo_magnet_box": {
     "assembled": {
       "size": [

@@ -1,8 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Removed one template that is out of scope for this repository, with its fixture, schema entries, and site card. Eight templates remain.
+
 ## 0.1.1
 
-- Every template now has a fixture: `demo_snap`, `demo_magnet_box`, `demo_ring_yoke`, `demo_strip_clip`, and `demo_doll_shoe` are new.
+- Every template now has a fixture: `demo_snap`, `demo_magnet_box`, `demo_ring_yoke`, and `demo_strip_clip` are new.
 - Fixed: specs for `ring_yoke`, `strip_clip`, and `enclosure_magnet_box` failed validation because their families were missing from the schema. Their measurement protocols are back.
 - Tests compare every fixture with a geometry snapshot (`tests/golden.json`), check that the preview STL is closed, and cover the print and keep-out gates.
 - CI runs ruff, a public-tree check, and the skill check, then builds a preview of every fixture as an artifact. Actions moved to v7.

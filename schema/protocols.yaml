@@ -43,9 +43,6 @@ coordinate_system: |
   +X = board length (USB on the +X face). +Y = board width. +Z = up through the PCB.
   usb.offset_mm.z is the connector-shell centre from the PCB bottom, not the FR4 top.
   Measure from the PCB corner, not from silk or the USB plastic.
-  Fashion doll (doll_mary_jane): keepout.foot is last CS — x along the foot (0 = heel),
-  y = width, z up from the local inner sole. Mesh world origin is the back of the heel
-  counter, midline, Z=0 on the bed (ball of the sole and heel tip). +X toward the toe.
   Device shell (enclosure_shell): keepout.device is the OEM box CS — +X toward
   terminals, +Y width, +Z up. SMA is on the lid; glands on the +X chamber wall.
   Device tray (enclosure_tray): keepout.tray is the inner-cavity CS — origin at
@@ -95,27 +92,6 @@ families:
       Keep-out is the component island, not the full PCB. A tall USB can needs
       press_board false. Measure the can before print. A 45-degree wall mesh with a
       blind lid is a separate spec, not a patch on a sealed one.
-  fashion_doll:
-    extra: []
-    fit_critical:
-      - shoe.foot_length_mm
-      - shoe.foot_width_mm
-      - shoe.foot_height_mm
-      - shoe.heel_lift_mm
-      - shoe.ankle_diameter_mm
-      - shoe.strap_width_mm
-      - shoe.strap_thickness_mm
-      - shoe.clip_gap_mm
-      - keepout.foot
-    coordinate_system: |
-      Last CS (keepout.foot): x = heel→toe, y = width, z = up from the local inner sole.
-      Mesh: heel-counter back on the midline, Z=0 = bed (forefoot sole + heel tip).
-      Measure the doll you will dress, not a catalogue photo.
-    notes: >-
-      A 1:6 fashion-doll last is often near 23 mm long. Other fashion lines differ.
-      Measure the doll you will dress.
-      Foot height and ankle are assumed until measured. Cavity = last + gap_mm per side
-      (default 0.15 → +0.3 total). Pattern mary-jane-clip.
   magnet_box:
     extra: []
     fit_critical:

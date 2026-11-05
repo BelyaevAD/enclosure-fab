@@ -1,6 +1,6 @@
 ---
 name: enclosure-fab
-description: Use when someone wants a 3D-printable enclosure, case, box, tray, pipe clip, channel clip, or doll shoe from measurements. Edit a YAML spec, then build STL, 3MF, and STEP with CadQuery through scripts/fab.py or the fab MCP server. Not for slicing, printer control, or measuring a part.
+description: Use when someone wants a 3D-printable enclosure, case, box, tray, pipe clip, or channel clip from measurements. Edit a YAML spec, then build STL, 3MF, and STEP with CadQuery through scripts/fab.py or the fab MCP server. Not for slicing, printer control, or measuring a part.
 ---
 
 # enclosure-fab
@@ -49,7 +49,6 @@ Run the CLI as `.venv/Scripts/python scripts/fab.py` (`.venv/bin/python` on Linu
 | `enclosure_magnet_box` | `demo_magnet_box` | `box.outer_*`, `box.magnet_*`, `keepout.box` |
 | `ring_yoke` | `demo_ring_yoke` | `rings.band_mm`, both `circumference_mm` and `mouth_mm`, `keepout.bores` |
 | `strip_clip` | `demo_strip_clip` | `clip.*` sizes, `keepout.pocket` |
-| `doll_mary_jane` | `demo_doll_shoe` | `shoe.*`, `keepout.foot` |
 
 `usb.offset_mm.z` is the centre of the connector shell, measured from the bottom of the board.
 

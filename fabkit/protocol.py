@@ -14,7 +14,6 @@ from fabkit.paths import (
     project_ref,
 )
 from fabkit.validate import (
-    DOLL_FIT_CRITICAL,
     FIT_CRITICAL_PATHS,
     RING_FIT_CRITICAL,
     SHELL_FIT_CRITICAL,
@@ -42,8 +41,6 @@ def protocol(family: str | None = None) -> dict[str, Any]:
     for name, info in families.items():
         extra = list(info.get("extra") or [])
         critical = list(info.get("fit_critical") or FIT_CRITICAL_PATHS)
-        if name == "fashion_doll" and not info.get("fit_critical"):
-            critical = list(DOLL_FIT_CRITICAL)
         if name == "g202" and not info.get("fit_critical"):
             critical = list(SHELL_FIT_CRITICAL)
         if name == "g202_panel" and not info.get("fit_critical"):
