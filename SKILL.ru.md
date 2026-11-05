@@ -46,7 +46,6 @@ CLI запускается так: `.venv/Scripts/python scripts/fab.py` (на L
 | `enclosure_magnet_box` | `demo_magnet_box` | `box.outer_*`, `box.magnet_*`, `keepout.box` |
 | `ring_yoke` | `demo_ring_yoke` | `rings.band_mm`, оба `circumference_mm` и `mouth_mm`, `keepout.bores` |
 | `strip_clip` | `demo_strip_clip` | размеры `clip.*`, `keepout.pocket` |
-| `doll_mary_jane` | `demo_doll_shoe` | `shoe.*`, `keepout.foot` |
 
 `usb.offset_mm.z` — центр кожуха разъёма от низа платы.
 

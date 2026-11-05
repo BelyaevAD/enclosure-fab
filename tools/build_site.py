@@ -45,8 +45,6 @@ FIXTURES = (
      "Два кольца в одной пластине", "C-кольца под две трубы. Печатается плашмя."),
     ("demo_strip_clip", "strip_clip", "Channel clip", "Two teeth and a hole in the top bar. Prints on its side.",
      "Скоба", "Два зуба и отверстие в верхней планке. Печатается на боку."),
-    ("demo_doll_shoe", "doll_mary_jane", "Doll shoes", "A pair, with a strap and an ankle clip.",
-     "Кукольные туфли", "Пара с ремешком и клипсой на щиколотке."),
 )
 
 TEXT = {
@@ -57,7 +55,7 @@ TEXT = {
         "nav_examples": "Examples", "nav_agent": "Agents", "nav_patterns": "Patterns", "star": "Star",
         "lead": "A short YAML file describes the part: a case for a board, a box, a tray, a pipe clip. You get STL, 3MF, STEP, and two pictures. Open the 3MF in a slicer yourself. Nothing here talks to a printer.",
         "source": "View source", "install": "Install",
-        "meta": ("CPython 3.12", "9 templates", "Draft, not a print", "MIT"),
+        "meta": ("CPython 3.12", "8 templates", "Draft, not a print", "MIT"),
         "hero_alt": "Snap-fit case with roof slots, assembled", "hero_caption": "fixtures/demo_snap.yaml · assembled",
         "how": "How it works",
         "how_lead": "The shape comes from a template in the repo. Change the numbers in YAML instead of writing a script for each part.",
@@ -89,7 +87,7 @@ TEXT = {
         "nav_examples": "Примеры", "nav_agent": "Агенты", "nav_patterns": "Рецепты", "star": "Звезда",
         "lead": "Короткий YAML описывает деталь: корпус под плату, коробку, лоток, зажим на трубу. Получаешь STL, 3MF, STEP и две картинки. 3MF открываешь в слайсере сам. С принтером здесь ничего не связано.",
         "source": "Исходники", "install": "Установка",
-        "meta": ("CPython 3.12", "9 шаблонов", "Черновик, не печать", "MIT"),
+        "meta": ("CPython 3.12", "8 шаблонов", "Черновик, не печать", "MIT"),
         "hero_alt": "Корпус на защёлке со щелями в крыше, в сборе", "hero_caption": "fixtures/demo_snap.yaml · в сборе",
         "how": "Как это устроено",
         "how_lead": "Форму строит шаблон из репозитория. Меняешь числа в YAML, а не пишешь скрипт под каждую деталь.",

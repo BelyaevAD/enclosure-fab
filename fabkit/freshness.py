@@ -33,7 +33,6 @@ _MAGNET_BOX = (
     "solid.py",
     "kernel.py",
 )
-_DOLL = ("build.py", "doll_mary_jane.py", "solid.py", "kernel.py")
 _RING = ("build.py", "ring_yoke.py", "solid.py", "kernel.py")
 _STRIP = ("build.py", "strip_clip.py", "solid.py", "kernel.py")
 
@@ -82,8 +81,6 @@ def mesh_sources(spec: dict[str, Any]) -> list[Path]:
         names = _TRAY
     elif template == "enclosure_magnet_box":
         names = _MAGNET_BOX
-    elif template == "doll_mary_jane":
-        names = _DOLL
     elif template == "ring_yoke":
         names = _RING
     elif template == "strip_clip":

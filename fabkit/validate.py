@@ -9,7 +9,6 @@ from jsonschema import Draft202012Validator
 
 from fabkit.fit import (
     BUILD_MM,
-    MIN_FEATURE_MM,
     NOZZLE_MM,
     STATION_PRINTER,
     print_pose_fits_bed,
@@ -30,17 +29,6 @@ ENCLOSURE_FIT_CRITICAL = (
     "usb.opening_wh_mm.w",
     "usb.opening_wh_mm.h",
     "keepout.board",
-)
-DOLL_FIT_CRITICAL = (
-    "shoe.foot_length_mm",
-    "shoe.foot_width_mm",
-    "shoe.foot_height_mm",
-    "shoe.heel_lift_mm",
-    "shoe.ankle_diameter_mm",
-    "shoe.strap_width_mm",
-    "shoe.strap_thickness_mm",
-    "shoe.clip_gap_mm",
-    "keepout.foot",
 )
 SHELL_FIT_CRITICAL = (
     "device.length_mm",
@@ -81,7 +69,6 @@ MAGNET_BOX_FIT_CRITICAL = (
 )
 # Default / enclosure alias — protocol.py and older tests.
 FIT_CRITICAL_PATHS = ENCLOSURE_FIT_CRITICAL
-DOLL_TEMPLATE = "doll_mary_jane"
 SHELL_TEMPLATE = "enclosure_shell"
 TRAY_TEMPLATE = "enclosure_tray"
 MAGNET_BOX_TEMPLATE = "enclosure_magnet_box"
@@ -104,7 +91,7 @@ STRIP_FIT_CRITICAL = (
     "keepout.pocket",
 )
 _NON_ENCLOSURE = frozenset(
-    {DOLL_TEMPLATE, SHELL_TEMPLATE, TRAY_TEMPLATE, MAGNET_BOX_TEMPLATE, RING_TEMPLATE, STRIP_TEMPLATE}
+    {SHELL_TEMPLATE, TRAY_TEMPLATE, MAGNET_BOX_TEMPLATE, RING_TEMPLATE, STRIP_TEMPLATE}
 )
 
 PRINT_BLOCKED_FAMILIES = frozenset({"esp32_cam"})
@@ -150,8 +137,6 @@ def is_confirmed_node(node: Any) -> bool:
 
 def fit_critical_paths(spec: dict[str, Any]) -> tuple[str, ...]:
     template = spec.get("template_id")
-    if template == DOLL_TEMPLATE:
-        return DOLL_FIT_CRITICAL
     if template == SHELL_TEMPLATE:
         return SHELL_FIT_CRITICAL
     if template == TRAY_TEMPLATE:
@@ -245,8 +230,6 @@ def geometry_checks(spec: dict[str, Any], mode: str) -> tuple[list[str], list[st
     """Template-level geometry gates that JSON Schema cannot express."""
     if spec.get("template_id") == "enclosure_round":
         return [], []
-    if spec.get("template_id") == DOLL_TEMPLATE:
-        return _doll_geometry_checks(spec)
     if spec.get("template_id") == SHELL_TEMPLATE:
         return _shell_geometry_checks(spec)
     if spec.get("template_id") == TRAY_TEMPLATE:
@@ -408,38 +391,6 @@ def _magnet_box_geometry_checks(spec: dict[str, Any]) -> tuple[list[str], list[s
     return warnings, errors
 
 
-def _doll_geometry_checks(spec: dict[str, Any]) -> tuple[list[str], list[str]]:
-    warnings: list[str] = []
-    errors: list[str] = []
-    try:
-        ko = walk_path(spec, "keepout.foot")
-        kmin = [float(v) for v in ko["min"]]
-        kmax = [float(v) for v in ko["max"]]
-    except (KeyError, TypeError, ValueError):
-        errors.append("keepout.foot AABB is missing")
-        return warnings, errors
-    if len(kmin) != 3 or len(kmax) != 3 or any(a >= b for a, b in zip(kmin, kmax)):
-        errors.append("keepout.foot AABB is degenerate (min >= max on some axis)")
-    try:
-        foot_l = float(walk_path(spec, "shoe.foot_length_mm")["value"])
-        aabb_l = kmax[0] - kmin[0]
-        if abs(aabb_l - foot_l) > 0.25:
-            warnings.append(
-                f"keepout.foot length {aabb_l:.2f} mm vs shoe.foot_length_mm={foot_l} "
-                "(last CS: x along the foot, z up from the local sole)"
-            )
-    except (KeyError, TypeError, ValueError, IndexError):
-        pass
-    try:
-        strap_t = float(walk_path(spec, "shoe.strap_thickness_mm")["value"])
-        if strap_t + 1e-9 < MIN_FEATURE_MM:
-            errors.append(f"shoe.strap_thickness_mm={strap_t} < {MIN_FEATURE_MM}")
-    except (KeyError, TypeError, ValueError):
-        pass
-    warnings.extend(_fit_warnings(spec))
-    return warnings, errors
-
-
 def _ring_geometry_checks(spec: dict[str, Any]) -> tuple[list[str], list[str]]:
     warnings: list[str] = []
     errors: list[str] = []
@@ -522,14 +473,6 @@ def _strip_geometry_checks(spec: dict[str, Any]) -> tuple[list[str], list[str]]:
 
 
 def _span_xy(spec: dict[str, Any]) -> tuple[float, float] | None:
-    if spec.get("template_id") == DOLL_TEMPLATE:
-        try:
-            return (
-                float(walk_path(spec, "shoe.foot_length_mm")["value"]),
-                float(walk_path(spec, "shoe.foot_width_mm")["value"]),
-            )
-        except (KeyError, TypeError, ValueError):
-            return None
     if spec.get("template_id") == RING_TEMPLATE:
         try:
             from fabkit.ring_yoke import layout_from_spec
@@ -700,10 +643,6 @@ def _outer_xy_mm(spec: dict[str, Any]) -> tuple[float, float] | None:
         return None
     length, width = span_xy
     wall = spec.get("wall_mm")
-    if spec.get("template_id") == DOLL_TEMPLATE:
-        wall_f = float(wall) if wall is not None else 1.2
-        gap = float(spec.get("gap_mm") if spec.get("gap_mm") is not None else 0.15)
-        return length + 2.0 * gap + 2.0 * wall_f, width + 2.0 * gap + 2.0 * wall_f
     if spec.get("template_id") == RING_TEMPLATE:
         return span_xy
     if spec.get("template_id") == STRIP_TEMPLATE:

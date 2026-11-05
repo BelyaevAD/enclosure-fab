@@ -1,6 +1,6 @@
 """AABB, fill ratio, Z-slices and cavity hints from a binary/ASCII STL.
 
-Does not load the mesh into CadQuery. For large sculpted doll-shoe STLs.
+Does not load the mesh into CadQuery. For large sculpted STLs.
 """
 
 from __future__ import annotations

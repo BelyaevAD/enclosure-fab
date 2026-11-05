@@ -28,8 +28,6 @@ OPENING_CLEARANCE_MM = 0.3
 LID_FIT_MM = 0.25
 # Board pocket XY if the spec omits gap_mm.
 BOARD_GAP_MM = 0.3
-# Doll last: brief +0.3 mm TOTAL on length/width → 0.15 per side. Not PETG shrink in confirmed mm.
-FOOT_GAP_MM = 0.15
 # FDM visual minimum (p1s-0.4, ~2 lines). Strap/wall still target ≥ 1.2 (3 perimeters).
 MIN_FEATURE_MM = 0.8
 

@@ -8,103 +8,91 @@
   "allOf": [
     {
       "if": {
-        "properties": { "template_id": { "const": "doll_mary_jane" } },
+        "properties": { "template_id": { "const": "enclosure_shell" } },
         "required": ["template_id"]
       },
       "then": {
-        "required": ["shoe", "keepout"],
+        "required": ["device", "keepout"],
         "properties": {
-          "keepout": { "required": ["foot"] }
+          "keepout": { "required": ["device"] }
         }
       },
       "else": {
         "if": {
-          "properties": { "template_id": { "const": "enclosure_shell" } },
+          "properties": { "template_id": { "const": "enclosure_tray" } },
           "required": ["template_id"]
         },
         "then": {
-          "required": ["device", "keepout"],
+          "required": ["tray", "pockets", "keepout"],
           "properties": {
-            "keepout": { "required": ["device"] }
+            "keepout": { "required": ["tray"] }
           }
         },
         "else": {
           "if": {
-            "properties": { "template_id": { "const": "enclosure_tray" } },
+            "properties": { "template_id": { "const": "ring_yoke" } },
             "required": ["template_id"]
           },
-          "then": {
-            "required": ["tray", "pockets", "keepout"],
-            "properties": {
-              "keepout": { "required": ["tray"] }
-            }
-          },
-          "else": {
-            "if": {
-              "properties": { "template_id": { "const": "ring_yoke" } },
-              "required": ["template_id"]
+            "then": {
+              "required": ["rings", "keepout"],
+              "properties": {
+                "keepout": { "required": ["bores"] }
+              }
             },
+            "else": {
+              "if": {
+                "properties": { "template_id": { "const": "enclosure_magnet_box" } },
+                "required": ["template_id"]
+              },
               "then": {
-                "required": ["rings", "keepout"],
+                "required": ["box", "keepout"],
                 "properties": {
-                  "keepout": { "required": ["bores"] }
+                  "keepout": { "required": ["box"] }
                 }
               },
               "else": {
                 "if": {
-                  "properties": { "template_id": { "const": "enclosure_magnet_box" } },
+                  "properties": { "template_id": { "const": "strip_clip" } },
                   "required": ["template_id"]
                 },
                 "then": {
-                  "required": ["box", "keepout"],
+                  "required": ["clip", "keepout"],
                   "properties": {
-                    "keepout": { "required": ["box"] }
+                    "keepout": { "required": ["pocket"] }
                   }
                 },
                 "else": {
                   "if": {
-                    "properties": { "template_id": { "const": "strip_clip" } },
+                    "properties": { "template_id": { "const": "enclosure_round" } },
                     "required": ["template_id"]
                   },
                   "then": {
-                    "required": ["clip", "keepout"],
+                    "required": ["case"],
                     "properties": {
-                      "keepout": { "required": ["pocket"] }
+                      "case": {
+                        "required": ["outer_d_mm", "body_h_mm", "lid_t_mm", "vent_d_mm", "vent_n"]
+                      }
                     }
                   },
                   "else": {
-                    "if": {
-                      "properties": { "template_id": { "const": "enclosure_round" } },
-                      "required": ["template_id"]
-                    },
-                    "then": {
-                      "required": ["case"],
-                      "properties": {
-                        "case": {
-                          "required": ["outer_d_mm", "body_h_mm", "lid_t_mm", "vent_d_mm", "vent_n"]
-                        }
-                      }
-                    },
-                    "else": {
-                      "required": ["board", "usb", "keepout"],
-                      "properties": {
-                        "keepout": { "required": ["board"] }
-                      }
+                    "required": ["board", "usb", "keepout"],
+                    "properties": {
+                      "keepout": { "required": ["board"] }
                     }
                   }
                 }
               }
-          }
+            }
         }
       }
     }
   ],
   "properties": {
-    "template_id": { "type": "string", "enum": ["enclosure_box", "enclosure_snap", "enclosure_shell", "enclosure_tray", "enclosure_magnet_box", "enclosure_round", "doll_mary_jane", "ring_yoke", "strip_clip"] },
+    "template_id": { "type": "string", "enum": ["enclosure_box", "enclosure_snap", "enclosure_shell", "enclosure_tray", "enclosure_magnet_box", "enclosure_round", "ring_yoke", "strip_clip"] },
     "board_id": { "type": "string", "minLength": 1 },
     "family": {
       "type": "string",
-      "enum": ["wemos", "wemos2", "esp32_cam", "esp32_devkit", "demo", "dcdc", "fashion_doll", "ring_yoke", "magnet_box", "strip_clip"]
+      "enum": ["wemos", "wemos2", "esp32_cam", "esp32_devkit", "demo", "dcdc", "ring_yoke", "magnet_box", "strip_clip"]
     },
     "revision": { "type": "string" },
     "notes": { "type": "string" },
@@ -147,14 +135,12 @@
       "properties": {
         "board": { "$ref": "#/$defs/aabb" },
         "device": { "$ref": "#/$defs/aabb" },
-        "foot": { "$ref": "#/$defs/aabb" },
         "tray": { "$ref": "#/$defs/aabb" },
         "box": { "$ref": "#/$defs/aabb" },
         "bores": { "$ref": "#/$defs/boreKeepout" },
         "pocket": { "$ref": "#/$defs/boreKeepout" }
       }
     },
-    "shoe": { "$ref": "#/$defs/shoe" },
     "rings": { "$ref": "#/$defs/rings" },
     "clip": { "$ref": "#/$defs/clip" },
     "cam": { "$ref": "#/$defs/cam" },
@@ -435,30 +421,6 @@
         "slot_w_mm": { "type": "number", "exclusiveMinimum": 0 },
         "ligament_mm": { "type": "number", "exclusiveMinimum": 0 },
         "notes": { "type": "string" }
-      }
-    },
-    "shoe": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "foot_length_mm",
-        "foot_width_mm",
-        "foot_height_mm",
-        "heel_lift_mm",
-        "ankle_diameter_mm",
-        "strap_width_mm",
-        "strap_thickness_mm",
-        "clip_gap_mm"
-      ],
-      "properties": {
-        "foot_length_mm": { "$ref": "#/$defs/measured" },
-        "foot_width_mm": { "$ref": "#/$defs/measured" },
-        "foot_height_mm": { "$ref": "#/$defs/measured" },
-        "heel_lift_mm": { "$ref": "#/$defs/measured" },
-        "ankle_diameter_mm": { "$ref": "#/$defs/measured" },
-        "strap_width_mm": { "$ref": "#/$defs/measured" },
-        "strap_thickness_mm": { "$ref": "#/$defs/measured" },
-        "clip_gap_mm": { "$ref": "#/$defs/measured" }
       }
     },
     "ringClip": {

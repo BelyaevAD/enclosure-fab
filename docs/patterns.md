@@ -34,10 +34,6 @@ These recipes start from the fixtures in this repo. Copy one and change the numb
 
 `fixtures/demo_strip_clip.yaml`, template `strip_clip`. One channel with two teeth and a hole in the top bar. The 3MF lies on its side, and the hole is a teardrop so it prints without support. The body slides in at an angle under the teeth. Do not go back to one tooth.
 
-## Doll shoe
-
-`fixtures/demo_doll_shoe.yaml`, template `doll_mary_jane`. A shoe shell around a doll's foot, a strap, and a C-clip at the ankle. The preview has a right shoe and a mirrored left shoe. The foot sizes are the doll; the template adds `gap_mm` per side.
-
 ## Preview and print
 
 `preview` is fine while the sizes are still a guess. The file name starts with `PREVIEW-`. `print` waits until the sizes that decide the fit are confirmed. If a keep-out cuts through the part, the print files are removed.
