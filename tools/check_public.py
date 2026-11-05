@@ -25,7 +25,10 @@ def tracked_files() -> list[str]:
 def problems() -> list[str]:
     found: list[str] = []
     for rel in tracked_files():
-        text = (ROOT / rel).read_text(encoding="utf-8", errors="replace")
+        path = ROOT / rel
+        if not path.is_file():  # deleted in the worktree, still in the index
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
         for number, line in enumerate(text.splitlines(), 1):
             for label, pattern in RULES:
                 if pattern.search(line):
