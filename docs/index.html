@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://buttons.github.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://ghbtns.com https://buttons.github.io; connect-src 'self' https://api.github.com">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>enclosure-fab — an enclosure from YAML</title>
-  <meta name="description" content="A short YAML file describes an enclosure. You get STL, 3MF, STEP, and a picture. You open the file in a slicer.">
+  <title>enclosure-fab — printable parts from YAML</title>
+  <meta name="description" content="A short YAML file describes a printable part. You get STL, 3MF, STEP, and two pictures. You open the 3MF in a slicer.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="BelyaevAD">
   <meta name="theme-color" content="#0e221d">
@@ -15,22 +15,43 @@
   <link rel="alternate" hreflang="x-default" href="https://belyaevad.github.io/enclosure-fab/">
   <link rel="sitemap" type="application/xml" href="https://belyaevad.github.io/enclosure-fab/sitemap.xml">
   <link rel="icon" type="image/svg+xml" href="assets/brand-mark.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/demo_snap-hero.webp" type="image/webp">
   <link rel="stylesheet" href="assets/site.css">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ru_RU">
-  <meta property="og:title" content="enclosure-fab — an enclosure from YAML">
-  <meta property="og:description" content="A short YAML file describes an enclosure. You get STL, 3MF, STEP, and a picture. You open the file in a slicer.">
+  <meta property="og:title" content="enclosure-fab — printable parts from YAML">
+  <meta property="og:description" content="A short YAML file describes a printable part. You get STL, 3MF, STEP, and two pictures. You open the 3MF in a slicer.">
   <meta property="og:url" content="https://belyaevad.github.io/enclosure-fab/">
   <meta property="og:site_name" content="enclosure-fab">
-  <meta property="og:image" content="https://belyaevad.github.io/enclosure-fab/assets/round-assembled.png">
+  <meta property="og:image" content="https://belyaevad.github.io/enclosure-fab/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="enclosure-fab">
-  <meta name="twitter:description" content="An enclosure from YAML: STL, 3MF, and STEP. Python 3.12, MIT.">
-  <meta name="twitter:image" content="https://belyaevad.github.io/enclosure-fab/assets/round-assembled.png">
+  <meta name="twitter:description" content="A short YAML file describes a printable part. You get STL, 3MF, STEP, and two pictures. You open the 3MF in a slicer.">
+  <meta name="twitter:image" content="https://belyaevad.github.io/enclosure-fab/assets/og.jpg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "enclosure-fab",
+  "description": "A short YAML file describes a printable part. You get STL, 3MF, STEP, and two pictures. You open the 3MF in a slicer.",
+  "url": "https://belyaevad.github.io/enclosure-fab/",
+  "codeRepository": "https://github.com/BelyaevAD/enclosure-fab",
+  "programmingLanguage": "Python",
+  "runtimePlatform": "CPython 3.12",
+  "license": "https://opensource.org/licenses/MIT",
+  "version": "0.1.1",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "BelyaevAD",
+    "url": "https://github.com/BelyaevAD"
+  },
+  "keywords": "3D printing, CadQuery, enclosure, STL, 3MF, STEP, YAML, MCP, agent skill"
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -41,14 +62,13 @@
       </a>
       <div class="nav-right">
         <div class="nav-links">
-          <a href="https://github.com/BelyaevAD/enclosure-fab#examples" target="_blank" rel="noopener noreferrer">Examples</a>
-          <a href="https://github.com/BelyaevAD/enclosure-fab/blob/main/docs/patterns.md" target="_blank" rel="noopener noreferrer">Patterns</a>
+          <a href="#examples">Examples</a>
+          <a href="#agent">Agents</a>
+          <a href="https://github.com/BelyaevAD/enclosure-fab/blob/main/docs/patterns.md" rel="noopener">Patterns</a>
         </div>
-        <span class="nav-star">
-          <a class="github-button" href="https://github.com/BelyaevAD/enclosure-fab" rel="noopener" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star BelyaevAD/enclosure-fab on GitHub">Star</a>
-        </span>
+        <a class="nav-star" href="https://github.com/BelyaevAD/enclosure-fab" rel="noopener" aria-label="Star: BelyaevAD/enclosure-fab on GitHub">★ Star</a>
         <div class="language-switch" aria-label="Language">
-          <a href="./" lang="en" aria-current="page">EN</a>
+          <a href="" lang="en" aria-current="page">EN</a>
           <a href="ru/" lang="ru">RU</a>
         </div>
       </div>
@@ -58,24 +78,25 @@
     <section class="hero-band">
       <div class="hero-inner shell">
         <div class="hero-copy">
-          <p class="eyebrow">Python 3.12 · CadQuery</p>
+          <p class="eyebrow">Python 3.12 · CadQuery · MCP</p>
           <h1>enclosure-fab</h1>
-          <p class="hero-lead">A short YAML file describes the enclosure. You get STL, 3MF, STEP, and a picture of the part. Open the 3MF in a slicer yourself. Nothing here is sent to a printer.</p>
+          <p class="hero-lead">A short YAML file describes the part: a case for a board, a box, a tray, a pipe clip. You get STL, 3MF, STEP, and two pictures. Open the 3MF in a slicer yourself. Nothing here talks to a printer.</p>
           <div class="hero-actions">
-            <a class="button" href="https://github.com/BelyaevAD/enclosure-fab" target="_blank" rel="noopener noreferrer">View source</a>
+            <a class="button" href="https://github.com/BelyaevAD/enclosure-fab" rel="noopener">View source</a>
             <a class="button secondary" href="#install">Install</a>
           </div>
           <div class="hero-meta">
             <span>CPython 3.12</span>
+            <span>9 templates</span>
             <span>Draft, not a print</span>
             <span>MIT</span>
           </div>
         </div>
         <figure class="hero-visual">
           <div class="hero-frame">
-            <img src="assets/round-assembled.png" alt="Round pot with a lid and six ventilation holes" width="800" height="600">
+            <img src="assets/demo_snap-hero.webp" alt="Snap-fit case with roof slots, assembled" width="960" height="720" fetchpriority="high">
           </div>
-          <figcaption>fixtures/demo_round.yaml · lid on the body</figcaption>
+          <figcaption>fixtures/demo_snap.yaml · assembled</figcaption>
         </figure>
       </div>
     </section>
@@ -92,11 +113,11 @@
           </article>
           <article class="feature">
             <h3>Then print</h3>
-            <p><code>print</code> runs only after the sizes that decide the fit are confirmed. If the part crosses a keep-out, no file is written.</p>
+            <p><code>print</code> runs only after a person confirmed the sizes that decide the fit. If the part crosses a keep-out, no file is written.</p>
           </article>
           <article class="feature">
             <h3>Then the slicer</h3>
-            <p>The 3MF is the shape only, with no slicer settings. Turn the lid yourself if it is lying the wrong way.</p>
+            <p>The 3MF is the shape only, with no slicer settings. Turn the parts on the bed yourself.</p>
           </article>
         </div>
       </div>
@@ -105,33 +126,120 @@
       <div class="shell">
         <div class="section-heading">
           <h2>Examples</h2>
-          <p>The numbers are made up. Copy a file and put in your own measurements. These are not a real device.</p>
+          <p>Every template has a fixture in <code>fixtures/</code>. The numbers are made up. Copy a file and put in your own measurements.</p>
         </div>
         <div class="shot-gallery">
           <figure class="shot-card">
-            <img src="assets/round-assembled.png" alt="Assembled round pot" loading="lazy">
-            <figcaption><strong>Round pot</strong><span>demo_round.yaml · lid on, six holes</span></figcaption>
+            <img src="assets/demo_rect.webp" alt="Box with a connector opening" width="640" height="480" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>Box with a connector opening</strong>
+              <span>About 25×17×12 mm. One opening on +X.</span>
+              <span class="shot-meta"><code>demo_rect</code> · <code>enclosure_box</code> · <a href="assets/demo_rect-print.webp">For the slicer</a></span>
+            </figcaption>
           </figure>
           <figure class="shot-card">
-            <img src="assets/round-print.png" alt="Pot and lid side by side" loading="lazy">
-            <figcaption><strong>Same part, for the slicer</strong><span>Body and lid side by side</span></figcaption>
+            <img src="assets/demo_snap.webp" alt="Snap-fit case" width="640" height="480" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>Snap-fit case</strong>
+              <span>Base and lid snap together. USB on +X, slots in the roof.</span>
+              <span class="shot-meta"><code>demo_snap</code> · <code>enclosure_snap</code> · <a href="assets/demo_snap-print.webp">For the slicer</a></span>
+            </figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="assets/demo_round.webp" alt="Round pot" width="640" height="480" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>Round pot</strong>
+              <span>Ø40 mm, a lid with six holes.</span>
+              <span class="shot-meta"><code>demo_round</code> · <code>enclosure_round</code> · <a href="assets/demo_round-print.webp">For the slicer</a></span>
+            </figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="assets/demo_shell.webp" alt="Device shell" width="640" height="480" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>Device shell</strong>
+              <span>A shell around a 40×30×16 mm device. Screw lid.</span>
+              <span class="shot-meta"><code>demo_shell</code> · <code>enclosure_shell</code> · <a href="assets/demo_shell-print.webp">For the slicer</a></span>
+            </figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="assets/demo_tray.webp" alt="Tray" width="640" height="480" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>Tray</strong>
+              <span>Pockets, an open bay, and a separate lid.</span>
+              <span class="shot-meta"><code>demo_tray</code> · <code>enclosure_tray</code> · <a href="assets/demo_tray-print.webp">For the slicer</a></span>
+            </figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="assets/demo_magnet_box.webp" alt="Magnet box" width="640" height="480" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>Magnet box</strong>
+              <span>90×70×40 mm. The lid sits on disc magnets.</span>
+              <span class="shot-meta"><code>demo_magnet_box</code> · <code>enclosure_magnet_box</code> · <a href="assets/demo_magnet_box-print.webp">For the slicer</a></span>
+            </figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="assets/demo_ring_yoke.webp" alt="Two rings in one plate" width="640" height="480" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>Two rings in one plate</strong>
+              <span>C-rings for two pipes. Prints flat.</span>
+              <span class="shot-meta"><code>demo_ring_yoke</code> · <code>ring_yoke</code> · <a href="assets/demo_ring_yoke-print.webp">For the slicer</a></span>
+            </figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="assets/demo_strip_clip.webp" alt="Channel clip" width="640" height="480" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>Channel clip</strong>
+              <span>Two teeth and a hole in the top bar. Prints on its side.</span>
+              <span class="shot-meta"><code>demo_strip_clip</code> · <code>strip_clip</code> · <a href="assets/demo_strip_clip-print.webp">For the slicer</a></span>
+            </figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="assets/demo_doll_shoe.webp" alt="Doll shoes" width="640" height="480" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>Doll shoes</strong>
+              <span>A pair, with a strap and an ankle clip.</span>
+              <span class="shot-meta"><code>demo_doll_shoe</code> · <code>doll_mary_jane</code> · <a href="assets/demo_doll_shoe-print.webp">For the slicer</a></span>
+            </figcaption>
           </figure>
         </div>
-        <div class="coverage" aria-label="Fixtures">
-          <div class="coverage-item"><code>demo_rect</code><strong>Rectangular box, connector opening on +X</strong></div>
-          <div class="coverage-item"><code>demo_round</code><strong>Cylinder, separate lid, six holes</strong></div>
-          <div class="coverage-item"><code>demo_shell</code><strong>Shell around a device outline</strong></div>
-          <div class="coverage-item"><code>demo_tray</code><strong>Tray with an open bay and a separate lid</strong></div>
+      </div>
+    </section>
+    <section class="section" id="agent">
+      <div class="quick-start shell">
+        <div class="quick-copy">
+          <h2>Use with an agent</h2>
+          <p>The skill is already in the paths that Cursor, Claude Code, and Codex read. Open the clone as the project. The MCP server <code>fab</code> has the same gates as the CLI.</p>
+          <ul class="agent-list">
+            <li>Skill: <code>.cursor/skills/</code>, <code>.claude/skills/</code>, <code>.agents/skills/</code></li>
+            <li>Tools: <code>validate_spec</code>, <code>generate_preview</code>, <code>generate_print</code>, <code>measurement_protocol</code> and four more</li>
+            <li>The agent never sets <code>confirmed</code>. A person measures.</li>
+          </ul>
+          <a class="button" href="https://github.com/BelyaevAD/enclosure-fab/blob/main/SKILL.md" rel="noopener">Read the skill</a>
+        </div>
+        <div class="code-window" aria-label="MCP config">
+          <div class="code-toolbar">
+            <span class="window-dot"></span>
+            <span class="window-dot yellow"></span>
+            <span class="window-dot green"></span>
+            <span>mcp.json</span>
+          </div>
+          <pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;fab&quot;: {
+      &quot;command&quot;: &quot;/path/to/enclosure-fab/.venv/bin/python&quot;,
+      &quot;args&quot;: [&quot;/path/to/enclosure-fab/mcp/server.py&quot;]
+    }
+  }
+}</code></pre>
         </div>
       </div>
     </section>
     <section class="section dark" id="install">
       <div class="quick-start shell">
         <div class="quick-copy">
-          <p class="eyebrow">Install</p>
-          <h2>Python 3.12</h2>
-          <p>CadQuery 2.8 needs Python 3.12. Do not run <code>pip install -U</code>. VTK, Numba, and NumPy would upgrade with it, and the preview can change.</p>
-          <a class="button secondary" href="https://github.com/BelyaevAD/enclosure-fab#agent-setup" target="_blank" rel="noopener noreferrer">Full install</a>
+          <h2>Install</h2>
+          <p>CadQuery 2.8 needs Python 3.12. Do not run <code>pip install -U</code>: VTK, Numba, and NumPy would move together, and the geometry can change.</p>
+          <a class="button secondary" href="https://github.com/BelyaevAD/enclosure-fab/blob/main/README.md#install" rel="noopener">Full instructions</a>
         </div>
         <div class="code-window" aria-label="Install commands">
           <div class="code-toolbar">
@@ -144,22 +252,21 @@
 cd enclosure-fab
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe scripts\fab.py preview fixtures\demo_round.yaml</code></pre>
+.\.venv\Scripts\python.exe scripts\fab.py preview fixtures\demo_snap.yaml</code></pre>
         </div>
       </div>
     </section>
   </main>
   <footer class="site-footer">
     <div class="footer-inner shell">
-      <p>enclosure-fab · 0.1.0 · MIT</p>
+      <p>enclosure-fab · 0.1.1 · MIT</p>
       <div class="footer-links">
-        <a href="https://github.com/BelyaevAD/enclosure-fab" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://github.com/BelyaevAD/enclosure-fab/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">License</a>
+        <a href="https://github.com/BelyaevAD/enclosure-fab" rel="noopener">GitHub</a>
+        <a href="https://github.com/BelyaevAD/enclosure-fab/releases" rel="noopener">Releases</a>
+        <a href="https://github.com/BelyaevAD/enclosure-fab/blob/main/LICENSE" rel="noopener">License</a>
         <a href="ru/" lang="ru">Русский</a>
-        <a href="https://belyaevad.github.io/" target="_blank" rel="noopener noreferrer">belyaevad.github.io</a>
       </div>
     </div>
   </footer>
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

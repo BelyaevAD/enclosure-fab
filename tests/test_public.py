@@ -8,12 +8,7 @@ from fabkit.paths import FIXTURES_DIR, LIBRARY_DIR
 from fabkit.protocol import list_templates
 from fabkit.validate import load_spec, validate_spec
 
-FIXTURES = (
-    "demo_rect.yaml",
-    "demo_shell.yaml",
-    "demo_tray.yaml",
-    "demo_round.yaml",
-)
+FIXTURES = sorted(path.name for path in FIXTURES_DIR.glob("*.yaml"))
 
 
 def test_fixtures_preview_ok() -> None:
@@ -27,10 +22,9 @@ def test_wemos_stub_print_blocked() -> None:
     assert not gate.ok
 
 
-def test_templates_listed() -> None:
-    names = list_templates()
-    assert "enclosure_box" in names
-    assert "enclosure_round" in names
+def test_every_template_has_a_fixture() -> None:
+    used = {load_spec(FIXTURES_DIR / name)["template_id"] for name in FIXTURES}
+    assert set(list_templates()) == used
 
 
 def test_round_lid_has_vents() -> None:

@@ -1,6 +1,6 @@
 # Agents
 
-Install this repository, then read [SKILL.md](SKILL.md) before editing a spec or a template.
+Read [SKILL.md](SKILL.md) before you edit a spec or a template. It has the setup, the route, and the rules.
 
 ```powershell
 git clone https://github.com/BelyaevAD/enclosure-fab.git
@@ -12,4 +12,4 @@ py -3.12 -m venv .venv
 
 Linux and macOS: `python3.12 -m venv .venv`, then `.venv/bin/python` for pip and `scripts/fab.py`.
 
-Do not run `pip install -U`. Do not start a printer. Open this checkout as the workspace. The skill is already at `.cursor/skills/enclosure-fab`, `.claude/skills/enclosure-fab`, and `.agents/skills/enclosure-fab`. `python tools/check_skills.py` checks those copies.
+Do not run `pip install -U`. Do not start a printer. Before a pull request, run the checks listed in [CONTRIBUTING.md](CONTRIBUTING.md).

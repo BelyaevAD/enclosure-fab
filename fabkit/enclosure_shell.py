@@ -368,7 +368,6 @@ def build_parts(spec: dict[str, Any]) -> EnclosureBuild:
     )
     base = fuse(base, partition)
 
-    boss_r = lay.insert_boss / 2.0
     bosses = [
         _z_cyl(x, y, lay.floor - PENETRATE_MM, lay.base_h, lay.insert_boss)
         for x, y in boss_xy(lay)

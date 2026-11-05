@@ -1,0 +1,353 @@
+{
+  "demo_doll_shoe": {
+    "assembled": {
+      "size": [
+        25.143,
+        10.2,
+        16.15
+      ],
+      "solids": 1,
+      "volume": 851.656
+    },
+    "base": {
+      "size": [
+        25.143,
+        10.2,
+        16.15
+      ],
+      "solids": 1,
+      "volume": 851.656
+    },
+    "keepout_volume": 0.0,
+    "lid": {
+      "size": [
+        25.143,
+        10.2,
+        16.15
+      ],
+      "solids": 1,
+      "volume": 851.656
+    },
+    "printable": {
+      "size": [
+        25.143,
+        25.3,
+        16.15
+      ],
+      "solids": 2,
+      "volume": 1703.312
+    }
+  },
+  "demo_magnet_box": {
+    "assembled": {
+      "size": [
+        90.0,
+        70.0,
+        40.0
+      ],
+      "solids": 1,
+      "volume": 43671.245
+    },
+    "base": {
+      "size": [
+        90.0,
+        70.0,
+        38.74
+      ],
+      "solids": 1,
+      "volume": 34446.725
+    },
+    "keepout_volume": 0.0,
+    "lid": {
+      "size": [
+        90.0,
+        70.0,
+        3.26
+      ],
+      "solids": 1,
+      "volume": 9225.024
+    },
+    "printable": {
+      "size": [
+        185.0,
+        70.0,
+        38.74
+      ],
+      "solids": 2,
+      "volume": 43671.749
+    }
+  },
+  "demo_rect": {
+    "assembled": {
+      "size": [
+        24.8,
+        16.8,
+        11.6
+      ],
+      "solids": 1,
+      "volume": 2743.724
+    },
+    "base": {
+      "size": [
+        24.8,
+        16.8,
+        9.6
+      ],
+      "solids": 1,
+      "volume": 1910.444
+    },
+    "keepout_volume": 0.0,
+    "lid": {
+      "size": [
+        24.8,
+        16.8,
+        2.0
+      ],
+      "solids": 1,
+      "volume": 833.28
+    },
+    "printable": {
+      "size": [
+        54.6,
+        16.8,
+        9.6
+      ],
+      "solids": 2,
+      "volume": 2743.724
+    }
+  },
+  "demo_ring_yoke": {
+    "assembled": {
+      "size": [
+        52.065,
+        39.514,
+        12.0
+      ],
+      "solids": 1,
+      "volume": 4046.062
+    },
+    "base": {
+      "size": [
+        52.065,
+        39.514,
+        12.0
+      ],
+      "solids": 1,
+      "volume": 4046.062
+    },
+    "keepout_volume": 0.0,
+    "lid": {
+      "size": [
+        52.065,
+        39.514,
+        12.0
+      ],
+      "solids": 1,
+      "volume": 4046.062
+    },
+    "printable": {
+      "size": [
+        52.065,
+        39.514,
+        12.0
+      ],
+      "solids": 1,
+      "volume": 4046.062
+    }
+  },
+  "demo_round": {
+    "assembled": {
+      "size": [
+        40.0,
+        40.0,
+        20.0
+      ],
+      "solids": 1,
+      "volume": 8761.902
+    },
+    "base": {
+      "size": [
+        40.0,
+        40.0,
+        18.0
+      ],
+      "solids": 1,
+      "volume": 6333.451
+    },
+    "keepout_volume": 0.0,
+    "lid": {
+      "size": [
+        40.0,
+        40.0,
+        2.0
+      ],
+      "solids": 1,
+      "volume": 2428.451
+    },
+    "printable": {
+      "size": [
+        86.0,
+        40.0,
+        18.0
+      ],
+      "solids": 2,
+      "volume": 8761.902
+    }
+  },
+  "demo_shell": {
+    "assembled": {
+      "size": [
+        76.0,
+        38.0,
+        23.5
+      ],
+      "solids": 1,
+      "volume": 31543.279
+    },
+    "base": {
+      "size": [
+        76.0,
+        38.0,
+        21.05
+      ],
+      "solids": 1,
+      "volume": 24508.599
+    },
+    "keepout_volume": 0.0,
+    "lid": {
+      "size": [
+        76.0,
+        38.0,
+        4.5
+      ],
+      "solids": 1,
+      "volume": 7044.316
+    },
+    "printable": {
+      "size": [
+        157.0,
+        38.0,
+        21.05
+      ],
+      "solids": 2,
+      "volume": 31552.915
+    }
+  },
+  "demo_snap": {
+    "assembled": {
+      "size": [
+        31.28,
+        19.23,
+        12.5
+      ],
+      "solids": 1,
+      "volume": 3099.847
+    },
+    "base": {
+      "size": [
+        31.28,
+        19.23,
+        11.0
+      ],
+      "solids": 1,
+      "volume": 2312.591
+    },
+    "keepout_volume": 0.0,
+    "lid": {
+      "size": [
+        31.0,
+        18.5,
+        3.5
+      ],
+      "solids": 1,
+      "volume": 787.256
+    },
+    "printable": {
+      "size": [
+        67.0,
+        19.23,
+        11.0
+      ],
+      "solids": 2,
+      "volume": 3099.847
+    }
+  },
+  "demo_strip_clip": {
+    "assembled": {
+      "size": [
+        46.0,
+        12.0,
+        26.0
+      ],
+      "solids": 1,
+      "volume": 3703.726
+    },
+    "base": {
+      "size": [
+        46.0,
+        12.0,
+        26.0
+      ],
+      "solids": 1,
+      "volume": 3703.726
+    },
+    "keepout_volume": 0.0,
+    "lid": {
+      "size": [
+        46.0,
+        12.0,
+        26.0
+      ],
+      "solids": 1,
+      "volume": 3703.726
+    },
+    "printable": {
+      "size": [
+        46.0,
+        26.0,
+        12.0
+      ],
+      "solids": 1,
+      "volume": 3703.726
+    }
+  },
+  "demo_tray": {
+    "assembled": {
+      "size": [
+        104.8,
+        84.8,
+        25.5
+      ],
+      "solids": 1,
+      "volume": 67630.059
+    },
+    "base": {
+      "size": [
+        104.8,
+        84.8,
+        23.0
+      ],
+      "solids": 1,
+      "volume": 49893.143
+    },
+    "keepout_volume": 0.0,
+    "lid": {
+      "size": [
+        104.8,
+        84.8,
+        4.5
+      ],
+      "solids": 1,
+      "volume": 17736.916
+    },
+    "printable": {
+      "size": [
+        214.6,
+        84.8,
+        23.0
+      ],
+      "solids": 2,
+      "volume": 67630.059
+    }
+  }
+}
