@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Removed one template that is out of scope for this repository, with its fixture, schema entries, and site card. Eight templates remain.
+- Preview pictures use a studio renderer: smooth shading, crease and outline lines instead of the triangle mesh, soft lights with ambient occlusion, a quiet background, and a separate colour for each printed part. The axis marker is gone.
 
 ## 0.1.1
 
