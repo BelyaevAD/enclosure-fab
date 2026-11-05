@@ -13,18 +13,18 @@ ZONE = Path(__file__).resolve().parents[1]
 if str(ZONE) not in sys.path:
     sys.path.insert(0, str(ZONE))
 
-from fabkit.runtime import require_cpython_312
+from fabkit.runtime import require_cpython_312  # noqa: E402
 
 require_cpython_312()
 
-from mcp.server.mcpserver import MCPServer
+from mcp.server.mcpserver import MCPServer  # noqa: E402
 
-from fabkit.generate import generate
-from fabkit.freshness import freshness_report
-from fabkit.last_gate import read as read_gate, record
-from fabkit.primitives import list_primitives
-from fabkit.protocol import list_boards, list_templates, protocol, resolve_spec_path
-from fabkit.validate import GateError, load_spec, validate_spec
+from fabkit.generate import generate  # noqa: E402
+from fabkit.freshness import freshness_report  # noqa: E402
+from fabkit.last_gate import read as read_gate, record  # noqa: E402
+from fabkit.primitives import list_primitives  # noqa: E402
+from fabkit.protocol import list_boards, list_templates, protocol, resolve_spec_path  # noqa: E402
+from fabkit.validate import GateError, load_spec, validate_spec  # noqa: E402
 
 logging.basicConfig(level=logging.INFO, stream=sys.stderr)
 server = MCPServer("fab")

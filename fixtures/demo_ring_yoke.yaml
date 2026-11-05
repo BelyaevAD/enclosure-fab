@@ -1,0 +1,30 @@
+template_id: ring_yoke
+board_id: demo_ring_yoke
+family: ring_yoke
+revision: fixture
+notes: Synthetic pair of C-rings in one plane. Mouths open toward -X and +X. Not a physical SKU.
+wall_mm: 3.0
+print_profile:
+  printer: bambu-p1s
+  material: PETG
+photo:
+  image_ref: null
+  hypothesis_origin: null
+  measurement_request: null
+rings:
+  band_mm: { value: 12.0, origin: assumed, confirmed: false }
+  bar:
+    notes: Larger ring. Mouth toward -X.
+    wall_mm: 3.0
+    circumference_mm: { value: 110.0, origin: assumed, confirmed: false }
+    mouth_mm: { value: 28.0, origin: assumed, confirmed: false }
+  handle:
+    notes: Smaller ring. Mouth toward +X.
+    wall_mm: 2.0
+    circumference_mm: { value: 80.0, origin: assumed, confirmed: false }
+    mouth_mm: { value: 20.0, origin: assumed, confirmed: false }
+keepout:
+  bores:
+    origin: assumed
+    confirmed: false
+    notes: Two cylinders inside the bores. The template builds them; this node is the gate.

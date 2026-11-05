@@ -1,0 +1,51 @@
+template_id: enclosure_snap
+board_id: demo_snap
+family: demo
+revision: fixture
+notes: Synthetic board in a snap-fit case with roof slots. USB opening on +X. Not a physical SKU.
+wall_mm: 1.68
+gap_mm: 0.3
+component_clearance_mm: 5.0
+print_profile:
+  printer: bambu-p1s
+  material: PETG
+photo:
+  image_ref: null
+  hypothesis_origin: null
+  measurement_request: null
+case:
+  base_h_mm: 11.0
+  lid_h_mm: 3.5
+  post_h_mm: 1.5
+  rib_h_mm: 1.0
+  press_board: false
+  snap_mm: 0.4
+  gap_y_mm: 0.25
+  opening_clearance_mm: 0.3
+  lid_fit_mm: 0.3
+  vents:
+    faces: [lid, minus_x]
+    kind: window
+    orientation: horizontal
+    protection: indoor
+    pattern: slots
+    slot_w_mm: 2.4
+    ligament_mm: 2.52
+board:
+  length_mm: { value: 30.0, origin: assumed, confirmed: true }
+  width_mm: { value: 18.0, origin: assumed, confirmed: true }
+  thickness_mm: { value: 1.6, origin: assumed, confirmed: true }
+usb:
+  offset_mm:
+    x: { value: 30.0, origin: assumed, confirmed: true }
+    y: { value: 9.0, origin: assumed, confirmed: true }
+    z: { value: 3.3, origin: assumed, confirmed: true }
+  opening_wh_mm:
+    w: { value: 9.0, origin: assumed, confirmed: true }
+    h: { value: 3.4, origin: assumed, confirmed: true }
+keepout:
+  board:
+    min: [4.0, 3.5, 1.6]
+    max: [24.0, 14.5, 5.0]
+    origin: assumed
+    confirmed: true

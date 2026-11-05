@@ -14,16 +14,34 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - name: Install
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt ruff==0.17.3
+      - name: Lint
+        run: ruff check .
+      - name: Public tree
+        run: python tools/check_public.py
+      - name: Skill copies
+        run: python tools/check_skills.py
+      - name: Site pages are built from tools/build_site.py
+        run: |
+          python tools/build_site.py
+          git diff --exit-code -- docs
       - name: Test
         run: |
           sudo apt-get update
           sudo apt-get install -y xvfb
           xvfb-run -a python -m pytest tests -q
-      - name: Skill copies
-        run: python tools/check_skills.py
+      - name: Preview every fixture
+        run: |
+          for spec in fixtures/*.yaml; do
+            xvfb-run -a python scripts/fab.py preview "$spec" -o ".work/ci/$(basename "$spec" .yaml)" > /dev/null
+          done
+      - uses: actions/upload-artifact@v7
+        with:
+          name: fixture-previews
+          path: .work/ci/
+          retention-days: 14

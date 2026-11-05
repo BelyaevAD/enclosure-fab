@@ -116,3 +116,68 @@ families:
       Measure the doll you will dress.
       Foot height and ankle are assumed until measured. Cavity = last + gap_mm per side
       (default 0.15 → +0.3 total). Pattern mary-jane-clip.
+  magnet_box:
+    extra: []
+    fit_critical:
+      - box.outer_l_mm
+      - box.outer_w_mm
+      - box.outer_h_mm
+      - box.magnet_d_mm
+      - box.magnet_h_mm
+      - keepout.box
+    coordinate_system: |
+      Closed box CS: origin is the outer −X/−Y/floor corner. +X is
+      box.outer_l_mm, +Y is box.outer_w_mm, +Z up. External L×W×H are
+      the part, including the lid plate. keepout.box is the free cavity
+      (origin at the inner −X/−Y/floor corner) inset past the corner
+      posts. The lip drops inside; it does not add to the outer height.
+      Lid bosses hang down toward the base cups. Photo fields are notes.
+    notes: >-
+      Empty closed box with a magnetic lid (pattern magnet-box). Not a
+      device tray and not a snap enclosure. Four corner posts run from
+      the floor and fuse into both walls. Disc magnets sit in those
+      posts and in lid bosses that hang down. Print the base and the lid
+      separately. Confirm outer L×W×H and the disc before print.
+  ring_yoke:
+    extra: []
+    fit_critical:
+      - rings.band_mm
+      - rings.bar.circumference_mm
+      - rings.bar.mouth_mm
+      - rings.handle.circumference_mm
+      - rings.handle.mouth_mm
+      - keepout.bores
+    coordinate_system: |
+      Both hoops lie in XY. Axes are parallel (Z). The part is one flat
+      plate, band thick. Origin is the bar-ring centre. The bar mouth
+      opens toward -X. The handle centre is on +X; its mouth opens toward
+      +X. Mouths sit on opposite ends and face outward. Circumference is
+      the pipe you clip onto, not the hole. Keep-out is two cylinders
+      inside the holes. The mesh already lies flat; do not stand a ring
+      on edge.
+    notes: >-
+      Coplanar C-rings (pattern ring-yoke). Each ring has its own wall
+      and mouth. Do not cross the ring axes. Measure the pipes, then
+      shrink the holes after a trial print if they run large.
+  strip_clip:
+    extra: []
+    fit_critical:
+      - clip.inner_x_mm
+      - clip.inner_z_mm
+      - clip.band_mm
+      - clip.tooth_mm
+      - clip.hole_d_mm
+      - keepout.pocket
+    coordinate_system: |
+      Channel clip. Origin of the standing solid is the outer
+      −X/−Y/bottom corner. +X crosses the opening between the legs.
+      +Y is the band. +Z is up. The clear pocket runs from the underside
+      of the top bar down to the tops of the teeth. Teeth sit on −X and
+      +X, thickness = wall. The hole axis is Z, centred on the top bar,
+      with a 45° teardrop toward +Y. Keep-out is that pocket. The 3MF is
+      a copy laid on a side face: print Z is the band and the teardrop
+      points up.
+    notes: >-
+      Channel clip (pattern strip-clip). Two teeth, one hole in the top
+      bar. Infill is a slicer note, not geometry. Do not go back to a
+      single tooth.

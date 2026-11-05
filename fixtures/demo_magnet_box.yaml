@@ -1,0 +1,31 @@
+template_id: enclosure_magnet_box
+board_id: demo_magnet_box
+family: magnet_box
+revision: fixture
+notes: Synthetic closed box with a lid on disc magnets. Corner posts carry the magnet seats. Not a physical SKU.
+wall_mm: 1.26
+print_profile:
+  printer: bambu-p1s
+  material: PLA
+photo:
+  image_ref: null
+  hypothesis_origin: null
+  measurement_request: null
+box:
+  outer_l_mm: { value: 90.0, origin: assumed, confirmed: false }
+  outer_w_mm: { value: 70.0, origin: assumed, confirmed: false }
+  outer_h_mm: { value: 40.0, origin: assumed, confirmed: false }
+  floor_mm: 1.68
+  lid_mm: 1.26
+  lip_mm: 2.0
+  lid_fit_mm: 0.25
+  magnet_d_mm: { value: 6.0, origin: assumed, confirmed: false }
+  magnet_h_mm: { value: 2.0, origin: assumed, confirmed: false }
+  magnet_fit_mm: 0.25
+  rib_t_mm: 1.68
+keepout:
+  box:
+    min: [10.0, 10.0, 0.0]
+    max: [77.4, 57.4, 34.8]
+    origin: assumed
+    confirmed: false

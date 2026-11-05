@@ -2,6 +2,6 @@ Template `doll_mary_jane` is implemented in [`fabkit/doll_mary_jane.py`](../../f
 
 Classic Mary Jane pump + C-clip ankle for a 1:6 fashion-doll last. Print pose: forefoot sole and heel tip on Z=0. Closed toe has a 45° gable (no internal supports). Pair = right + mirrored left.
 
-Ready recipe: [`docs/patterns.md`](../../docs/patterns.md) — `mary-jane-clip`.
+Fixture: [`fixtures/demo_doll_shoe.yaml`](../../fixtures/demo_doll_shoe.yaml). Recipe: [Doll shoe](../../docs/patterns.md#doll-shoe).
 
 Foot millimetres are the doll. Template adds `gap_mm` per side (default 0.15 → cavity +0.3 total). Do not overlay-patch `.work/generated/`.
